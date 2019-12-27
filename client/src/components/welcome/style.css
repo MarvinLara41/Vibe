@@ -1,0 +1,36 @@
+.hello {
+    padding: 1em;
+    margin: 50px; 
+    width: 60vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+
+}
+
+.box{
+    padding: 5em;
+    width: 30vw;
+    height: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.signUp{
+    margin: auto;
+    width: 12vw;
+    background-color: white;
+    border-style: solid;
+    border-color: lightslategrey;
+    float: left;
+}
+
+.signIn{
+    margin: auto;
+    width: 12vw;
+    height: 20vh;
+    background-color: white;
+    float: right;
+    border-style: solid;
+    border-color: lightslategrey;
+}
