@@ -8,7 +8,7 @@ class Welcome extends Component {
         this.state = {
             email: "",
             password: "",
-            message: "",
+            message: {},
             loggedIn: null
         };
 
@@ -31,15 +31,23 @@ class Welcome extends Component {
 
     submitForm(e){
         e.preventDefault();
-        API.signIn(this.state, cb => {
-            console.log(cb.data);
 
-            if (cb.data.success){
-            this.setState({ loggedIn: true});
-            console.log(this.state.loggedIn);
-        }
-        console.log("logged In")
-        })
+       API.sign_In(this.state, callback => {
+      console.log(callback.data);
+      this.setState({ message: callback.data });
+      localStorage.setItem("token", callback.data.token);
+
+      if (callback.data.success) {
+        this.setState({ loggedIn: true });
+        console.log("dlfhois", this.state.loggedIn);
+        // window.location.href = "/dashboard";
+        window.location.assign("/dashboard");
+      } else if (this.state.loggedIn) {
+        console.log("true");
+      }
+
+      // devrobert@timestamp.com
+    });
     }
 
 
@@ -58,6 +66,10 @@ class Welcome extends Component {
 
                     <div className="signIn"> 
                         <form onSubmit={this.submitForm}>
+                        <div className="message">
+                        {this.state.message.message}
+                        <br />
+                        </div>
                         <h2> Sign In </h2>
                         <input 
                         placeholder="Email"
@@ -78,6 +90,7 @@ class Welcome extends Component {
                     </div>
                 </div>
             </div>
+            
         )
     }
 }

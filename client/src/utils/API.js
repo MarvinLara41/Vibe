@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  signIn: function(type, callback) {
+  sign_In: function(type, callback) {
     let URL = "/api/signIn/signIn"; // change to sign in
 
     axios

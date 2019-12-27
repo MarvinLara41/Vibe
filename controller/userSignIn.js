@@ -51,12 +51,12 @@ module.exports = {
           }
           //user is local to this function
           const user = users[0];
-          if (!user.validPassword(password)){
-              return res.send({
-                  success: false,
-                  message: "Invalid password"
-              });
-          }
+        //   if (!user.validPassword(password)){
+        //       return res.send({
+        //           success: false,
+        //           message: "Invalid password"
+        //       });
+        //   }
   
           //if user information is correct this will run
           //data is taken from userSession.js file
