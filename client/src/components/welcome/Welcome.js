@@ -40,13 +40,10 @@ class Welcome extends Component {
       if (callback.data.success) {
         this.setState({ loggedIn: true });
         console.log("dlfhois", this.state.loggedIn);
-        // window.location.href = "/dashboard";
-        window.location.assign("/dashboard");
+        window.location.assign("/home");
       } else if (this.state.loggedIn) {
         console.log("true");
       }
-
-      // devrobert@timestamp.com
     });
     }
 
@@ -54,7 +51,7 @@ class Welcome extends Component {
     render(){
         return(
             <div className="hello">
-             <div class="welcome">
+             <div className="welcome">
                  <h1>Hello, Welcome to LightW8</h1>
                  <h5>The simple weight lifting app tracker.</h5>
             </div>
