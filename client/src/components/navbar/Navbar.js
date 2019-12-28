@@ -1,7 +1,6 @@
-import React, { Component }from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Workout from '../workout/Workout';
-import Home from '../home/Home';
+
 
 function Navbar() {
     return(

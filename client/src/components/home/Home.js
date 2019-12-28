@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../navbar/Navbar';
+import auth from '../auth.js';
 
 class Home extends Component {
    
@@ -9,6 +10,12 @@ class Home extends Component {
                 <h3>Main page</h3>
                 <div className="navbar">
                     <NavBar />
+
+                    <button onClick={() => {
+                        auth.logout(() => {
+                            this.props.history.push("/");
+                        })
+                    }}>Logout</button>
                 </div>
            </div>
        )

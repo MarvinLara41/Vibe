@@ -1,6 +1,7 @@
 import React, { Component } from  'react';
 import './style.css'
 import API from "../../utils/API";
+import auth from '../auth.js';
 
 class Welcome extends Component {
     constructor (props){
@@ -9,7 +10,6 @@ class Welcome extends Component {
             email: "",
             password: "",
             message: {},
-            loggedIn: null
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -62,7 +62,7 @@ class Welcome extends Component {
                     </div>
 
                     <div className="signIn"> 
-                        <form onSubmit={this.submitForm}>
+                        <form onSubmit={this.submitForm} >
                         <div className="message">
                         {this.state.message.message}
                         <br />
@@ -82,7 +82,13 @@ class Welcome extends Component {
                         onChange={this.handlePasswordChange} 
                         />
                         <br />
-                        <button type="submit">Log In </button>
+                        <button type="submit"
+                        onSubmit={() => {
+                            auth.login(() => {
+                                this.props.history.push("/home");
+                            });
+                        }}
+                        >Log In </button>
                         </form>
                     </div>
                 </div>
