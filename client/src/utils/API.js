@@ -6,8 +6,8 @@ export default {
 
     axios
       .post(URL, {
-        email: type.email, //login route
-        password: type.password
+        email:type.email,//login route
+        password:type.password
       })
       .then(function(response) {
         callback(response);

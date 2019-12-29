@@ -2,6 +2,7 @@ import React, { Component } from  'react';
 import './style.css'
 import API from "../../utils/API";
 import auth from '../auth.js';
+import {withRouter} from 'react-router-dom';
 
 class Welcome extends Component {
     constructor (props){
@@ -31,20 +32,19 @@ class Welcome extends Component {
 
     submitForm(e){
         e.preventDefault();
+       API.sign_In(this.state, cb => {
+           this.setState({
+               message: cb.data,
+           })
 
-       API.sign_In(this.state, callback => {
-      console.log(callback.data);
-      this.setState({ message: callback.data });
-      localStorage.setItem("token", callback.data.token);
-
-      if (callback.data.success) {
-        this.setState({ loggedIn: true });
-        console.log("dlfhois", this.state.loggedIn);
-        window.location.assign("/home");
-      } else if (this.state.loggedIn) {
-        console.log("true");
-      }
-    });
+           if(cb.data.success){
+               auth.login(() => {
+                this.props.history.push('/home');
+               })
+           }else{
+               console.log("data error")
+           }
+       })
     }
 
 
@@ -82,13 +82,7 @@ class Welcome extends Component {
                         onChange={this.handlePasswordChange} 
                         />
                         <br />
-                        <button type="submit"
-                        onSubmit={() => {
-                            auth.login(() => {
-                                this.props.history.push("/home");
-                            });
-                        }}
-                        >Log In </button>
+                        <button type="submit">Log In </button>
                         </form>
                     </div>
                 </div>
