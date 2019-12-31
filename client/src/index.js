@@ -5,6 +5,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Welcome from './components/welcome/Welcome';
 import Home from  './components/home/Home'
 import ProtectRoute from "./components/protectedRoute.js";
+import Workout from './components/workout/Workout.js'
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
       <div className="App">
         <Switch>
             <Route exact path ="/" component={Welcome} />
-            <ProtectRoute exact path="/home" component={Home}/>
+            <Route exact path="/home" component={Home}/>
+            <Route exact path="/workout" component={Workout} />
             <Route path="*" component={() => "404 NOT FOUND"}/>
         </Switch>
       </div>

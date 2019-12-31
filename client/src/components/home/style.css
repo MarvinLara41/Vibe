@@ -1,0 +1,17 @@
+.dashboard{
+    width: 70vw;
+    margin: auto auto auto auto;
+}
+
+.navbar{
+    width: 15vw;
+    position: relative;
+    left: 0;
+    height: 15vh;
+}
+
+.logOut{
+    position: relative;
+    bottom: 0;
+    left: 0;
+}

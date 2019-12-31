@@ -15,5 +15,24 @@ export default {
       .catch(function(error) {
         console.log(error);
       });
-  }
+  }, 
+
+  workOut:function(type, callback) {
+    let URL = "/api/workout/workout"; 
+
+    axios
+      .post(URL, {
+        date:type.date,//login route
+        exercise:type.exercise,
+        sets:type.sets,
+        reps: type.reps,
+        weight:type.weight
+      })
+      .then(function(response) {
+        callback(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }, 
 }
