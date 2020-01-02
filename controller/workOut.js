@@ -1,5 +1,7 @@
 const workOut = require('../models/workOut.js');
 
+
+
 module.exports = {
     workOut: function(req, res) {
     const {body} = req;
@@ -46,6 +48,51 @@ module.exports = {
             success: true, 
             message: 'workout saved'
         });
+        console.log(work);
     });
-  }
+  },
+
+  findWorkOut:function(req,res){
+        const {body} = req;
+        const {
+        date,
+        exercise,
+        sets,
+        reps,
+        weight
+        }= body;
+
+        workOut.find({
+            date: date,
+            exercise: exercise,
+            sets: sets,
+            reps: reps,
+            weight: weight
+        }, (err, previousWorkOut)=>{
+             if(err){
+            return res.send({
+                success: false, 
+                message: 'Error: workout not found'
+            });
+            }else if (previousWorkOut.data.success){
+            return res.send({
+                success: false, 
+                message: 'WorkOut found'
+            });
+            }
+            console.log(previousWorkOut);
+        })
+
+  },
+
+
+//     deleteWorkOut: function(req,res){
+       
+//     }, 
+
+//     updateWorkOut: function(req,res){
+//         let workout = req.body;
+//         let update = {};
+
+//     }
 }

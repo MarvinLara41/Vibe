@@ -7,11 +7,11 @@ class Workout extends Component {
         super(props)
 
         this.state={
-            date: " ",
-            exercise: " ",
-            sets: " ",
-            reps: " ",
-            weight: " ",  
+            date: "",
+            exercise: "",
+            sets: "",
+            reps: "",
+            weight: "",  
             message: {}
         }
 
@@ -21,6 +21,8 @@ class Workout extends Component {
         this.handleRepChange = this.handleRepChange.bind(this);
         this.handleSetChange = this.handleSetChange.bind(this);
         this.handleWeightChange = this.handleWeightChange.bind(this);
+        this.formSubmit = this.formSubmit.bind(this);
+        this.previousForm = this.previousForm.bind(this);
     }
 
     handleDateChange (e){
@@ -56,17 +58,25 @@ class Workout extends Component {
     formSubmit(e){
         e.preventDefault();
 
-        API.workOUt(this.state, cb => {
+        API.workOut( this.state, cb => {
+
             this.setState({
                 message: cb.data
-            })
+            });
 
-            if(cb.data.success){
-                console.log("food");
-                
+            if (cb.data.success){
+                console.log(this.setState)
             }
         })
+    }
 
+    previousForm(e){
+        e.preventDefault();
+
+        API.previousWorkOut(this.state, res =>{
+          
+            
+        })
     }
 
     render(){
@@ -74,8 +84,21 @@ class Workout extends Component {
         return(
         <div className="main">
             <h3>Workout page</h3>
-                <div className="workLog">
-                    <form>
+                <div className="previousWorkOut">
+                    <div class="previous">
+                    <h3>Previous WorkOut</h3>
+                    <form onSubmit={this.previousForm}>
+                        <div> {this.setState.date}</div>
+                        <div>{this.handleExerciseChange}</div>
+                        <div>{this.handleRepChange}</div>
+                        <div>{this.handleSetChange}</div>
+                        <div>{this.handleWeightChange}</div>
+                        <button>Previous WorkOut</button>
+                    </form>
+                    </div>
+                </div>
+                <div className="newWorkOut">
+                    <form onSubmit={this.formSubmit}>
                         <input
                         placeholder="Date"
                         type="text"
