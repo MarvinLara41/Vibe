@@ -1,0 +1,44 @@
+.hello {
+	padding: 1em;
+	margin: 50px;
+	width: 50vw;
+	height: 60vh;
+	margin: auto;
+}
+
+.image {
+	background-image: url(https://media.giphy.com/media/3ov9kb7MpWT6QgRewM/giphy.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: left;
+	width: 30vw;
+	height: 30vh;
+	position: relative;
+	margin: auto;
+}
+
+.box {
+	padding: 5em;
+	width: 30vw;
+	height: 50vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+.signUp {
+	margin: auto;
+	width: 12vw;
+	background-color: white;
+	border-style: solid;
+	border-color: lightslategrey;
+	float: left;
+}
+
+.signIn {
+	margin: auto;
+	width: 12vw;
+	height: 20vh;
+	background-color: white;
+	float: right;
+	border-style: solid;
+	border-color: lightslategrey;
+}
