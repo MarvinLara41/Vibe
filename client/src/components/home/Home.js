@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from '../navbar/Navbar';
 import auth from '../auth.js';
+import LoseWeight from './goals/loseWeight/loseWeight';
+import GainMuscle from './goals/gainMuscle/gainMuscle';
 // import API from '../../utils/API';
 import './home.css';
 
@@ -8,24 +10,32 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			goal: ''
+			display: ''
 		};
-
 		this.handleGoalChange = this.handleGoalChange.bind(this);
 	}
 
 	handleGoalChange(e) {
 		this.setState({
-			goal: e.target.value
+			display: e.target.value
 		});
 	}
 
-	goalSubmit(e) {
-		e.preventdefault();
-		console.log('goal submit button');
-	}
-
 	render() {
+		if (this.state.display === 'lose weight') {
+			return (
+				<div>
+					<LoseWeight />
+				</div>
+			);
+		} else if (this.state.display === 'gain muscle') {
+			return (
+				<div>
+					<GainMuscle />
+				</div>
+			);
+		}
+
 		return (
 			<div className="dashboard">
 				<h3>Welcome, let's set some goals</h3>
@@ -33,22 +43,20 @@ class Home extends Component {
 				<div className="welcomeDash">
 					<div className="target">
 						<p>What's your target?</p>
-						<form onSubmit={this.goalSubmit}>
+						<div className="goal">
 							<input
-								placeholder="lose weight/get strong"
+								className="input"
 								type="text"
-								value={this.state.goal}
+								placeholder="lose weight/ gain muscle"
+								value={this.state.display}
 								onChange={this.handleGoalChange}
 							/>
-							<br />
-							<button type="submit">Submit</button>
-						</form>
+						</div>
 					</div>
 				</div>
 
 				<div className="navbar">
 					<NavBar />
-
 					<button
 						className="logOut"
 						onClick={() => {

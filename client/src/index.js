@@ -24,8 +24,7 @@ function App() {
 
 ReactDOM.render(
 	<Router>
-		{' '}
-		<App />{' '}
+		<App />
 	</Router>,
 	document.getElementById('root')
 );

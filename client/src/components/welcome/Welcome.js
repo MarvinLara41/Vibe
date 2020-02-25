@@ -57,7 +57,7 @@ class Welcome extends Component {
 					</div>
 				</div>
 				<div className="box">
-					<div class="signUp">
+					<div className="signUp">
 						<h2> Sign Up </h2>
 						<button>Click Here</button>
 					</div>
