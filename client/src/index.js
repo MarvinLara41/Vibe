@@ -6,6 +6,7 @@ import Welcome from './components/welcome/Welcome';
 import Home from './components/home/Home';
 import ProtectRoute from './components/protectedRoute.js';
 import Workout from './components/workout/Workout.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	return (

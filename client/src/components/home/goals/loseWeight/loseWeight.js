@@ -11,7 +11,7 @@ class LoseWeight extends Component {
 		};
 
 		this.handleWeightChange = this.handleWeightChange.bind(this);
-		this.submitWeight = this.submitWeight.bind(this);
+		this.submitForm = this.submitForm.bind(this);
 	}
 
 	handleWeightChange(e) {
@@ -20,9 +20,10 @@ class LoseWeight extends Component {
 		});
 	}
 
-	async submitWeight(e) {
+	submitForm(e) {
 		e.preventDefault();
-		this.setState({ weight: e.target.value });
+		console.log('submit form button');
+
 		if (this.state.weight > 100) {
 			return (
 				<div>
@@ -54,10 +55,10 @@ class LoseWeight extends Component {
 						</p>
 						<div className="calulate">
 							<h3>Let's calculate your daily calorie intake</h3>
-							<form onSubmit={this.submitWeight}>
+							<form onSubmit={this.submitForm}>
 								<input
 									type="number"
-									placeholder="input your current weight here"
+									placeholder="current weight"
 									value={this.state.weight}
 									onChange={this.handleWeightChange}
 								/>
