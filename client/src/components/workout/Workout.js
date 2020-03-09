@@ -13,44 +13,56 @@ class Workout extends Component {
 
 		this.state = {
 			workOuts: [],
-			date: '',
-			exercise: '',
-			sets: '',
-			reps: '',
-			weight: '',
-			message: {},
-			id: uuidv4(),
+			workOut: {
+				date: '',
+				exercise: '',
+				sets: '',
+				reps: '',
+				weight: '',
+				message: {},
+				id: uuidv4()
+			},
 			editWorkOut: false
 		};
 	}
 
 	handleChangeDate = e => {
 		this.setState({
-			date: e.target.value
+			workOut: {
+				date: e.target.value
+			}
 		});
 	};
 
 	handleChangeExercise = e => {
 		this.setState({
-			exercise: e.target.value
+			workOut: {
+				exercise: e.target.value
+			}
 		});
 	};
 
 	handleChangeSets = e => {
 		this.setState({
-			sets: e.target.value
+			workOut: {
+				sets: e.target.value
+			}
 		});
 	};
 
 	handleChangeReps = e => {
 		this.setState({
-			reps: e.target.value
+			workOut: {
+				reps: e.target.value
+			}
 		});
 	};
 
 	handleChangeWeight = e => {
 		this.setState({
-			weight: e.target.value
+			workOut: {
+				weight: e.target.value
+			}
 		});
 	};
 
@@ -70,6 +82,7 @@ class Workout extends Component {
 
 		this.setState({
 			workOuts: upDatedWorkOut,
+			workOut: {},
 			id: uuidv4(),
 			editWorkOut: false
 		});
@@ -128,20 +141,27 @@ class Workout extends Component {
 			}
 		});
 
-		const selectedDate = this.state.workOuts.find(date => date.id !== id);
+		const selectedDate = this.state.workOuts.find(date => date.id === id);
 
 		const selectedExercise = this.state.workOuts.find(
-			exercise => exercise.id !== id
+			exercise => exercise.id === id
 		);
 
-		const selectedSets = this.state.workOuts.find(sets => sets.id !== id);
+		const selectedSets = this.state.workOuts.find(sets => sets.id === id);
 
-		const selectedWeight = this.state.workOuts.find(weight => weight.id !== id);
+		const selectedWeight = this.state.workOuts.find(weight => weight.id === id);
 
-		const selectedReps = this.state.workOuts.find(reps => reps.id !== id);
+		const selectedReps = this.state.workOuts.find(reps => reps.id === id);
 
 		this.setState({
 			workOuts: {
+				filterDate,
+				filterExercise,
+				filterReps,
+				filterSets,
+				filterWeight
+			},
+			workOut: {
 				selectedDate,
 				selectedExercise,
 				selectedReps,
@@ -166,11 +186,11 @@ class Workout extends Component {
 						<div className="col-10 mx-auto col-md mt-4">
 							<h4>WorkOut Log</h4>
 							<AddWorkOut
-								date={this.state.date}
-								exercise={this.state.exercise}
-								sets={this.state.sets}
-								reps={this.state.reps}
-								weight={this.state.weight}
+								date={this.state.workOut.date || ''}
+								exercise={this.state.workOut.exercise}
+								sets={this.state.workOut.sets}
+								reps={this.state.workOut.reps}
+								weight={this.state.workOut.weight}
 								handleSubmit={this.handleSubmit}
 								editWorkOut={this.state.editWorkOut}
 								handleChangeDate={this.handleChangeDate}
@@ -179,7 +199,12 @@ class Workout extends Component {
 								handleChangeReps={this.handleChangeReps}
 								handleChangeWeight={this.handleChangeWeight}
 							/>
-							<OutPutWork />
+							<OutPutWork
+								workOuts={this.state.workOuts}
+								clearWorkOuts={this.clearWorkOuts}
+								handleDelete={this.handleDelete}
+								handleEdit={this.handleEdit}
+							/>
 						</div>
 					</div>
 				</div>

@@ -12,7 +12,7 @@ export default class AddWorkOut extends Component {
 			handleChangeExercise,
 			handleChangeSets,
 			handleChangeReps,
-			handleChangeWeight
+			handleChangeWeight,
 			editWorkOut,
 			handleSubmit
 		} = this.props;
