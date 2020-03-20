@@ -52,7 +52,14 @@ class Welcome extends Component {
 			<div className="hello">
 				<div className="welcome">
 					<div className="image">
-						<h1>Hello, Welcome to LightW8</h1>
+						<h3>Hello, Welcome to LightW8</h3>
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
 						<h5>The simple weight lifting app tracker.</h5>
 					</div>
 				</div>

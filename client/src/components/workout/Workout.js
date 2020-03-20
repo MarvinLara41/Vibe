@@ -8,81 +8,80 @@ import API from '../../utils/API';
 import { v4 as uuidv4 } from 'uuid';
 
 class Workout extends Component {
-	constructor(props) {
-		super(props);
+	state = {
+		workOuts: [],
+		date: '',
+		exercise: '',
+		sets: '',
+		reps: '',
+		weight: '',
+		message: {},
+		id: uuidv4(),
+		editWorkOut: false
+	};
 
-		this.state = {
-			workOuts: [],
-			workOut: {
-				date: '',
-				exercise: '',
-				sets: '',
-				reps: '',
-				weight: '',
-				message: {},
-				id: uuidv4()
-			},
-			editWorkOut: false
-		};
-	}
+	handleChange = e => {
+		let date = e.target.value;
 
-	handleChangeDate = e => {
 		this.setState({
-			workOut: {
-				date: e.target.value
-			}
+			date
 		});
 	};
 
-	handleChangeExercise = e => {
+	handleChangeexercise = e => {
+		let exercise = e.target.value;
+
 		this.setState({
-			workOut: {
-				exercise: e.target.value
-			}
+			exercise
 		});
 	};
 
-	handleChangeSets = e => {
+	handleChangeeets = e => {
+		let sets = e.target.value;
+
 		this.setState({
-			workOut: {
-				sets: e.target.value
-			}
+			sets
 		});
 	};
 
-	handleChangeReps = e => {
+	handleChangereps = e => {
+		let reps = e.target.value;
+
 		this.setState({
-			workOut: {
-				reps: e.target.value
-			}
+			reps
 		});
 	};
 
-	handleChangeWeight = e => {
+	handleChangeweight = e => {
+		let weight = e.target.value;
 		this.setState({
-			workOut: {
-				weight: e.target.value
-			}
+			weight
 		});
 	};
 
 	handleSubmit = e => {
 		e.preventDefault();
 
-		const workOutId = {
+		let workOutId = {
 			id: this.state.id,
-			dateTitle: this.state.date,
-			exerciseTitle: this.state.exercise,
-			setsTitle: this.state.sets,
-			repsTitle: this.state.reps,
-			weightTitle: this.state.weight
+			dateTitle: this.state.date
+			// exerciseTitle: this.state.exercise,
+			// setsTitle: this.state.sets,
+			// repsTitle: this.state.reps,
+			// weightTitle: this.state.weight
 		};
 
 		const upDatedWorkOut = [...this.state.workOuts, workOutId];
 
+		console.log(workOutId);
+
 		this.setState({
 			workOuts: upDatedWorkOut,
-			workOut: {},
+			date: '',
+			// exercise: '',
+			// sets: '',
+			// reps: '',
+			// weight: '',
 			id: uuidv4(),
 			editWorkOut: false
 		});
@@ -186,19 +185,20 @@ class Workout extends Component {
 						<div className="col-10 mx-auto col-md mt-4">
 							<h4>WorkOut Log</h4>
 							<AddWorkOut
-								date={this.state.workOut.date || ''}
-								exercise={this.state.workOut.exercise}
-								sets={this.state.workOut.sets}
-								reps={this.state.workOut.reps}
-								weight={this.state.workOut.weight}
+								date={this.state.date}
+								exercise={this.state.exercise}
+								sets={this.state.sets}
+								reps={this.state.reps}
+								weight={this.state.weight}
 								handleSubmit={this.handleSubmit}
 								editWorkOut={this.state.editWorkOut}
-								handleChangeDate={this.handleChangeDate}
-								handleChangeExercise={this.handleChangeExercise}
-								handleChangeSets={this.handleChangeSets}
-								handleChangeReps={this.handleChangeReps}
-								handleChangeWeight={this.handleChangeWeight}
+								handleChangeDate={this.handleChange}
+								handleChangeExercise={this.handleChangeexercise}
+								handleChangeSets={this.handleChangesets}
+								handleChangeReps={this.handleChangereps}
+								handleChangeWeight={this.handleChangeweight}
 							/>
+
 							<OutPutWork
 								workOuts={this.state.workOuts}
 								clearWorkOuts={this.clearWorkOuts}

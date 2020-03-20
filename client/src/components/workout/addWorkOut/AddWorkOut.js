@@ -8,6 +8,7 @@ export default class AddWorkOut extends Component {
 			sets,
 			reps,
 			weight,
+			handleInputChange,
 			handleChangeDate,
 			handleChangeExercise,
 			handleChangeSets,
@@ -17,53 +18,31 @@ export default class AddWorkOut extends Component {
 			handleSubmit
 		} = this.props;
 		return (
-			<div className="card card-body my-3">
+			<div>
 				<form onSubmit={handleSubmit}>
-					<div className="input-group">
-						<div className="input-group-prepend">
+					<div className="card card-body my-3">
+						<div className="input-group">
 							<div className="input-group-text bg-primary text-white">
 								<i className="fas fa-book"></i>
 							</div>
+
 							<input
+								name="date"
 								type="text"
 								className="form-control"
 								placeholder="Date"
 								value={date}
 								onChange={handleChangeDate}
 							/>
-							<br />
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Exercise"
-								value={exercise}
-								onChange={handleChangeExercise}
-							/>
-							<br />
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Sets"
-								value={sets}
-								onChange={handleChangeSets}
-							/>
-							<br />
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Repetitions"
-								value={reps}
-								onChange={handleChangeReps}
-							/>
-							<br />
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Weight"
-								value={weight}
-								onChange={handleChangeWeight}
-							/>
 						</div>
+						{/* <input
+							name="exercise"
+							type="text"
+							className="form-control"
+							placeholder="Exercise"
+							value={exercise}
+							onChange={handleChangeExercise}
+						/> */}
 					</div>
 					<button
 						type="submit"
