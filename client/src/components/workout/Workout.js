@@ -21,18 +21,14 @@ class Workout extends Component {
 	};
 
 	handleChange = e => {
-		let date = e.target.value;
-
 		this.setState({
-			date
+			date: e.target.value
 		});
 	};
 
 	handleChangeexercise = e => {
-		let exercise = e.target.value;
-
 		this.setState({
-			exercise
+			exercise: e.target.value
 		});
 	};
 
@@ -64,8 +60,8 @@ class Workout extends Component {
 
 		let workOutId = {
 			id: this.state.id,
-			dateTitle: this.state.date
-			// exerciseTitle: this.state.exercise,
+			title: this.state.date,
+			exerciseTitle: this.state.exercise
 			// setsTitle: this.state.sets,
 			// repsTitle: this.state.reps,
 			// weightTitle: this.state.weight
@@ -78,10 +74,7 @@ class Workout extends Component {
 		this.setState({
 			workOuts: upDatedWorkOut,
 			date: '',
-			// exercise: '',
-			// sets: '',
-			// reps: '',
-			// weight: '',
+			exercise: '',
 			id: uuidv4(),
 			editWorkOut: false
 		});
@@ -187,16 +180,17 @@ class Workout extends Component {
 							<AddWorkOut
 								date={this.state.date}
 								exercise={this.state.exercise}
-								sets={this.state.sets}
-								reps={this.state.reps}
-								weight={this.state.weight}
+								// sets={this.state.sets}
+								// reps={this.state.reps}
+								// weight={this.state.weight}
+								handleChange={this.handleChange}
 								handleSubmit={this.handleSubmit}
 								editWorkOut={this.state.editWorkOut}
-								handleChangeDate={this.handleChange}
+								// handleChangeDate={this.handleChange}
 								handleChangeExercise={this.handleChangeexercise}
-								handleChangeSets={this.handleChangesets}
-								handleChangeReps={this.handleChangereps}
-								handleChangeWeight={this.handleChangeweight}
+								// handleChangeSets={this.handleChangesets}
+								// handleChangeReps={this.handleChangereps}
+								// handleChangeWeight={this.handleChangeweight}
 							/>
 
 							<OutPutWork

@@ -40,7 +40,7 @@ class LoseWeight extends Component {
 	render() {
 		return (
 			<div className="loseWeight">
-				<NavBar />
+				<NavBar className="lose-bar" />
 				<div className="container">
 					<h2>
 						<b>Losing Weight</b>

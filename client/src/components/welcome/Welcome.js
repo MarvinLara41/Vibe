@@ -47,6 +47,10 @@ class Welcome extends Component {
 		});
 	}
 
+	submitSignUp(e) {
+		e.preventDefault();
+	}
+
 	render() {
 		return (
 			<div className="hello">
@@ -65,8 +69,10 @@ class Welcome extends Component {
 				</div>
 				<div className="box">
 					<div className="signUp">
-						<h2> Sign Up </h2>
-						<button>Click Here</button>
+						<form>
+							<h2> Sign Up </h2>
+							<button>Click Here</button>
+						</form>
 					</div>
 
 					<div className="signIn">

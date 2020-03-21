@@ -14,7 +14,8 @@ export default class OutPutWork extends Component {
 						return (
 							<ToDoWork
 								key={workOut.id}
-								title={workOut.date}
+								title={workOut.title}
+								exerciseTitle={workOut.exerciseTitle}
 								handleDelete={() => handleDelete(workOut.id)}
 								handleEdit={() => handleEdit(workOut.id)}
 							/>
