@@ -16,6 +16,9 @@ export default class OutPutWork extends Component {
 								key={workOut.id}
 								title={workOut.title}
 								exerciseTitle={workOut.exerciseTitle}
+								setsTitle={workOut.setsTitle}
+								repsTitle={workOut.repsTitle}
+								weightTitle={workOut.weightTitle}
 								handleDelete={() => handleDelete(workOut.id)}
 								handleEdit={() => handleEdit(workOut.id)}
 							/>

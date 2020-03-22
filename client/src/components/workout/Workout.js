@@ -26,32 +26,27 @@ class Workout extends Component {
 		});
 	};
 
-	handleChangeexercise = e => {
+	handleChangeExercise = e => {
 		this.setState({
 			exercise: e.target.value
 		});
 	};
 
-	handleChangeeets = e => {
-		let sets = e.target.value;
-
+	handleChangeSets = e => {
 		this.setState({
-			sets
+			sets: e.target.value
 		});
 	};
 
-	handleChangereps = e => {
-		let reps = e.target.value;
-
+	handleChangeReps = e => {
 		this.setState({
-			reps
+			reps: e.target.value
 		});
 	};
 
-	handleChangeweight = e => {
-		let weight = e.target.value;
+	handleChangeWeight = e => {
 		this.setState({
-			weight
+			weight: e.target.value
 		});
 	};
 
@@ -61,10 +56,10 @@ class Workout extends Component {
 		let workOutId = {
 			id: this.state.id,
 			title: this.state.date,
-			exerciseTitle: this.state.exercise
-			// setsTitle: this.state.sets,
-			// repsTitle: this.state.reps,
-			// weightTitle: this.state.weight
+			exerciseTitle: this.state.exercise,
+			setsTitle: this.state.sets,
+			repsTitle: this.state.reps,
+			weightTitle: this.state.weight
 		};
 
 		const upDatedWorkOut = [...this.state.workOuts, workOutId];
@@ -75,6 +70,9 @@ class Workout extends Component {
 			workOuts: upDatedWorkOut,
 			date: '',
 			exercise: '',
+			sets: '',
+			reps: '',
+			weight: '',
 			id: uuidv4(),
 			editWorkOut: false
 		});
@@ -168,11 +166,9 @@ class Workout extends Component {
 	render() {
 		return (
 			<div className="main">
-				<h3>Workout page</h3>
 				<div className="nav">
 					<Navbar />
 				</div>
-
 				<div className="container">
 					<div className="row">
 						<div className="col-10 mx-auto col-md mt-4">
@@ -180,17 +176,16 @@ class Workout extends Component {
 							<AddWorkOut
 								date={this.state.date}
 								exercise={this.state.exercise}
-								// sets={this.state.sets}
-								// reps={this.state.reps}
-								// weight={this.state.weight}
+								sets={this.state.sets}
+								reps={this.state.reps}
+								weight={this.state.weight}
 								handleChange={this.handleChange}
 								handleSubmit={this.handleSubmit}
 								editWorkOut={this.state.editWorkOut}
-								// handleChangeDate={this.handleChange}
-								handleChangeExercise={this.handleChangeexercise}
-								// handleChangeSets={this.handleChangesets}
-								// handleChangeReps={this.handleChangereps}
-								// handleChangeWeight={this.handleChangeweight}
+								handleChangeExercise={this.handleChangeExercise}
+								handleChangeSets={this.handleChangeSets}
+								handleChangeReps={this.handleChangeReps}
+								handleChangeWeight={this.handleChangeWeight}
 							/>
 
 							<OutPutWork

@@ -6,14 +6,13 @@ export default class AddWorkOut extends Component {
 			date,
 			handleChange,
 			exercise,
-			// sets,
-			// reps,
-			// weight,
-			// handleChangeDate,
+			sets,
+			reps,
+			weight,
 			handleChangeExercise,
-			// handleChangeSets,
-			// handleChangeReps,
-			// handleChangeWeight,
+			handleChangeSets,
+			handleChangeReps,
+			handleChangeWeight,
 			editWorkOut,
 			handleSubmit
 		} = this.props;
@@ -42,6 +41,33 @@ export default class AddWorkOut extends Component {
 								placeholder="Exercise"
 								value={exercise}
 								onChange={handleChangeExercise}
+							/>
+
+							<input
+								name="sets"
+								type="number"
+								className="form-control"
+								placeholder="Sets"
+								value={sets}
+								onChange={handleChangeSets}
+							/>
+
+							<input
+								name="reps"
+								type="number"
+								className="form-control"
+								placeholder="Repitions"
+								value={reps}
+								onChange={handleChangeReps}
+							/>
+
+							<input
+								name="weight"
+								type="number"
+								className="form-control"
+								placeholder="Weight"
+								value={weight}
+								onChange={handleChangeWeight}
 							/>
 						</div>
 
