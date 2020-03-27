@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './welcome.css';
 import API from '../../utils/API';
 import auth from '../auth.js';
+import SignUp from './register/signUp';
 // import { withRouter } from 'react-router-dom';
 
 class Welcome extends Component {
@@ -10,12 +11,14 @@ class Welcome extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			message: {}
+			message: {},
+			register: false
 		};
 
 		this.handleEmailChange = this.handleEmailChange.bind(this);
 		this.handlePasswordChange = this.handlePasswordChange.bind(this);
 		this.submitForm = this.submitForm.bind(this);
+		this.submitFormSignUp = this.submitFormSignUp.bind(this);
 	}
 
 	handleEmailChange(e) {
@@ -47,8 +50,11 @@ class Welcome extends Component {
 		});
 	}
 
-	submitSignUp(e) {
+	submitFormSignUp(e) {
 		e.preventDefault();
+		this.setState({
+			register: true
+		});
 	}
 
 	render() {
@@ -62,17 +68,14 @@ class Welcome extends Component {
 						<br />
 						<br />
 						<br />
-						<br />
-						<br />
 						<h5>The simple weight lifting app tracker.</h5>
 					</div>
 				</div>
 				<div className="box">
 					<div className="signUp">
-						<form>
-							<h2> Sign Up </h2>
-							<button>Click Here</button>
-						</form>
+						<h2> Sign Up </h2>
+						<button onClick={this.submitFormSignUp}>Click Here</button>
+						{this.state.register ? <SignUp /> : null}
 					</div>
 
 					<div className="signIn">

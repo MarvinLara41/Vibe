@@ -1,97 +1,112 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  sign_In: function(type, callback) {
-    let URL = "/api/signIn/signIn"; // change to sign in
+	sign_In: function(type, callback) {
+		let URL = '/api/signIn/signIn'; // change to sign in
 
-    axios
-      .post(URL, {
-        email:type.email,//login route
-        password:type.password
-      })
-      .then(function(response) {
-        callback(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }, 
+		axios
+			.post(URL, {
+				email: type.email, //login route
+				password: type.password
+			})
+			.then(function(response) {
+				callback(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	},
 
-  workOut:function(type, callback) {
-    let URL = "/api/workout/workout"; 
+	sign_Up: function(type, callback) {
+		let URL = '/api/signUp/signUp';
 
-    axios
-      .post(URL, {
-        date:type.date,
-        exercise:type.exercise,
-        sets:type.sets,
-        reps: type.reps,
-        weight:type.weight
-      })
-      .then(function(response) {
-         console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }, 
+		axios
+			.post(URL, {
+				userID: type.userID,
+				email: type.email,
+				password: type.password
+			})
+			.then(function(response) {
+				callback(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	},
 
-    previousWorkOut:function(type,callback){
-      let URL = "/api/workout/workout"
+	workOut: function(type, callback) {
+		let URL = '/api/workout/workout';
 
-      axios
-        .get(URL, {
-          data: type.date,
-          exercise: type.exercise,
-          sets: type.sets,
-          reps: type.reps,
-          weight: type.weight
-        })
-        .then(function(response){
-          callback(response);
-        })
-        .catch(function(error){
-          console.log(error);
-        })
-  },
+		axios
+			.post(URL, {
+				date: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight
+			})
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	},
 
-  deleteWorkOut:function(type, callback){
+	previousWorkOut: function(type, callback) {
+		let URL = '/api/workout/workout';
 
-    let URL = "/api/workout/workout";
+		axios
+			.get(URL, {
+				data: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight
+			})
+			.then(function(response) {
+				callback(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	},
 
-    axios 
-      .delete(URL,{
-        date:type.date,
-        exercise:type.exercise,
-        sets:type.sets,
-        reps: type.reps,
-        weight:type.weight
-      })
-      .then(function(response){
-        console.log(response)
-      })
-      .catch(function(error){
-        console.log(error)
-      })
-  },
+	deleteWorkOut: function(type, callback) {
+		let URL = '/api/workout/workout';
 
-  updateWorkOut: function(type, callback){
+		axios
+			.delete(URL, {
+				date: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight
+			})
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	},
 
-      let URL = "/api/workout/workout";
+	updateWorkOut: function(type, callback) {
+		let URL = '/api/workout/workout';
 
-    axios
-      .put(URL, {
-        date:type.date,
-        exercise:type.exercise,
-        sets:type.sets,
-        reps: type.reps,
-        weight:type.weight
-      })
-      .then(function(response){
-        console.log(response)
-      })
-      .catch(function(error){
-        console.log(error)
-      })
-  }
-}
+		axios
+			.put(URL, {
+				date: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight
+			})
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	}
+};
