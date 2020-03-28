@@ -58,6 +58,9 @@ class Welcome extends Component {
 	}
 
 	render() {
+		if (this.state.register === true) {
+			return <SignUp />;
+		}
 		return (
 			<div className="hello">
 				<div className="welcome">
@@ -75,7 +78,6 @@ class Welcome extends Component {
 					<div className="signUp">
 						<h2> Sign Up </h2>
 						<button onClick={this.submitFormSignUp}>Click Here</button>
-						{this.state.register ? <SignUp /> : null}
 					</div>
 
 					<div className="signIn">
