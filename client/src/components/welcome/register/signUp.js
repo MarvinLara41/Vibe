@@ -44,16 +44,13 @@ export default class SignUp extends Component {
 
 	submitFormRegister(e) {
 		e.preventDefault();
-
 		API.sign_Up(this.state, callback => {
-			console.log(callback.data);
+			console.log(callback);
+			this.setState({ message: callback.data });
+			if (callback.data.success) {
+				window.location.assign('/');
+			}
 		});
-
-		// if (this.state.password !== this.state.password2) {
-		// 	this.setState({
-		// 		message: 'Passwords must be the same'
-		// 	});
-		// }
 	}
 
 	render() {
@@ -62,7 +59,7 @@ export default class SignUp extends Component {
 				<h3> Register your account Info</h3>
 				<div>
 					<form onSubmit={this.submitFormRegister}>
-						<div>{this.state.message}</div>
+						<div>{this.state.message.message}</div>
 						<br />
 						<input
 							placeholder="Email"
@@ -81,12 +78,6 @@ export default class SignUp extends Component {
 							onChange={this.handleChangePassword}
 							value={this.state.password}
 						/>
-						<br />
-						{/* <input
-							placeholder="Reconfirm Password"
-							onChange={this.handleChangePassword2}
-							value={this.state.password2}
-						/> */}
 						<br />
 						<button type="submit">Sign Up</button>
 					</form>

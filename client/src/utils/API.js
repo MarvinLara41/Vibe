@@ -24,8 +24,7 @@ export default {
 			.post(URL, {
 				email: type.email,
 				userId: type.userId,
-				password1: type.password,
-				password2: type.password
+				password: type.password
 			})
 			.then(function(response) {
 				callback(response);
