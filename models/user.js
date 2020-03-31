@@ -4,14 +4,6 @@ const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 //this file is for the creation of the user on the database.
 const UserSchema = new Schema({
-	firstName: {
-		type: String,
-		default: ''
-	},
-	lastName: {
-		type: String,
-		default: ''
-	},
 	email: {
 		type: String,
 		default: ''

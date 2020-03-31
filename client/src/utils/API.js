@@ -22,9 +22,10 @@ export default {
 
 		axios
 			.post(URL, {
-				userID: type.userID,
 				email: type.email,
-				password: type.password
+				userId: type.userId,
+				password1: type.password,
+				password2: type.password
 			})
 			.then(function(response) {
 				callback(response);

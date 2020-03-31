@@ -10,18 +10,18 @@ module.exports = {
 		let { email } = body;
 
 		//if error checks incase the user forgets to enter information
-		if (!userId) {
-			return res.send({
-				success: false,
-				message: 'Error: must fill in user name'
-			});
-		}
 		if (!email) {
 			return res.send({
 				success: false,
 				message: 'Error: must fill in email'
 			});
 		}
+		// if (!userId) {
+		// 	return res.send({
+		// 		success: false,
+		// 		message: 'Error: must fill in user name'
+		// 	});
+		// }
 		if (!password) {
 			return res.send({
 				success: false,
