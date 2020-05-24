@@ -111,8 +111,9 @@ export default {
 	},
 
 	saveProgress: function (type, callback) {
+		let URL = 'api/currentweight/currentweight';
 		axios
-			.save({
+			.post(URL, {
 				currentWeight: type.currentWeight,
 			})
 			.then(function (response) {

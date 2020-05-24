@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../../../navbar/Navbar';
+import Progress from '../../../progress/Progress';
 import API from '../../../../utils/API';
 import './loseWeight.css';
 
@@ -8,6 +9,8 @@ class LoseWeight extends Component {
 		super(props);
 		this.state = {
 			weight: [],
+			message: {},
+			progress: false,
 		};
 
 		this.handleWeightChange = this.handleWeightChange.bind(this);
@@ -22,10 +25,23 @@ class LoseWeight extends Component {
 
 	submitForm(e) {
 		e.preventDefault();
-		API.saveProgress((err, res) => {});
+		API.saveProgress(this.state, (callback) => {
+			console.log(callback);
+		});
+		this.setState({
+			weight: [],
+			progress: true,
+		});
 	}
 
 	render() {
+		if (this.state.progress === true) {
+			return (
+				<div>
+					<Progress />
+				</div>
+			);
+		}
 		return (
 			<div className="loseWeight">
 				<NavBar className="lose-bar" />
@@ -44,6 +60,10 @@ class LoseWeight extends Component {
 						<div className="calulate">
 							<h3>Let's calculate your daily calorie intake</h3>
 							<form onSubmit={this.submitForm}>
+								<div className="message">
+									{this.state.message.message}
+									<br />
+								</div>
 								<input
 									type="number"
 									placeholder="current weight"
