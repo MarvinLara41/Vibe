@@ -12,7 +12,7 @@ class Welcome extends Component {
 			email: '',
 			password: '',
 			message: {},
-			register: false
+			register: false,
 		};
 
 		this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -23,21 +23,21 @@ class Welcome extends Component {
 
 	handleEmailChange(e) {
 		this.setState({
-			email: e.target.value
+			email: e.target.value,
 		});
 	}
 
 	handlePasswordChange(e) {
 		this.setState({
-			password: e.target.value
+			password: e.target.value,
 		});
 	}
 
 	submitForm(e) {
 		e.preventDefault();
-		API.sign_In(this.state, cb => {
+		API.sign_In(this.state, (cb) => {
 			this.setState({
-				message: cb.data
+				message: cb.data,
 			});
 
 			if (cb.data.success) {
@@ -53,7 +53,7 @@ class Welcome extends Component {
 	submitFormSignUp(e) {
 		e.preventDefault();
 		this.setState({
-			register: true
+			register: true,
 		});
 	}
 
@@ -89,14 +89,14 @@ class Welcome extends Component {
 							<h2> Sign In </h2>
 							<input
 								placeholder="Email"
-								type="text"
+								type="Email"
 								value={this.state.email}
 								onChange={this.handleEmailChange}
 							/>
 							<br />
 							<input
 								placeholder="Password"
-								type="text"
+								type="Password"
 								value={this.state.password}
 								onChange={this.handlePasswordChange}
 							/>

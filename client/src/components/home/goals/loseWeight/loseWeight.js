@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import NavBar from '../../../navbar/Navbar';
-
+import API from '../../../../utils/API';
 import './loseWeight.css';
 
 class LoseWeight extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			weight: []
+			weight: [],
 		};
 
 		this.handleWeightChange = this.handleWeightChange.bind(this);
@@ -16,25 +16,13 @@ class LoseWeight extends Component {
 
 	handleWeightChange(e) {
 		this.setState({
-			weight: e.target.value
+			weight: e.target.value,
 		});
 	}
 
 	submitForm(e) {
 		e.preventDefault();
-		console.log('submit form button');
-
-		if (this.state.weight > 100) {
-			return (
-				<div>
-					<p>
-						Here is your daily calorie intake you must not consume more than
-						these amount of calories daily in order for your body to start
-						losing weight
-					</p>
-				</div>
-			);
-		}
+		API.saveProgress((err, res) => {});
 	}
 
 	render() {
@@ -63,7 +51,7 @@ class LoseWeight extends Component {
 									onChange={this.handleWeightChange}
 								/>
 								<br />
-								<button>Submit</button>
+								<button> Next </button>
 							</form>
 						</div>
 					</div>

@@ -11,8 +11,8 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: left;
-	width: 30vw;
-	height: 30vh;
+	width: auto;
+	height: auto;
 	position: relative;
 	margin: auto;
 }
@@ -27,17 +27,18 @@
 
 .signUp {
 	margin: auto;
-	width: 12vw;
+	width: auto;
+	height: auto;
 	background-color: white;
-	border-style: solid;
+	border-style: groove;
 	border-color: lightslategrey;
 	float: left;
 }
 
 .signIn {
 	margin: auto;
-	width: 12vw;
-	height: 25vh;
+	width: auto;
+	height: auto;
 	background-color: white;
 	float: right;
 	border-style: solid;

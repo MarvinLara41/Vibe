@@ -1,40 +1,40 @@
 import axios from 'axios';
 
 export default {
-	sign_In: function(type, callback) {
+	sign_In: function (type, callback) {
 		let URL = '/api/signIn/signIn'; // change to sign in
 
 		axios
 			.post(URL, {
 				email: type.email, //login route
-				password: type.password
+				password: type.password,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				callback(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	},
 
-	sign_Up: function(type, callback) {
+	sign_Up: function (type, callback) {
 		let URL = '/api/signUp/signUp';
 
 		axios
 			.post(URL, {
 				email: type.email,
 				userId: type.userId,
-				password: type.password
+				password: type.password,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				callback(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	},
 
-	workOut: function(type, callback) {
+	workOut: function (type, callback) {
 		let URL = '/api/workout/workout';
 
 		axios
@@ -43,17 +43,17 @@ export default {
 				exercise: type.exercise,
 				sets: type.sets,
 				reps: type.reps,
-				weight: type.weight
+				weight: type.weight,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				console.log(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	},
 
-	previousWorkOut: function(type, callback) {
+	previousWorkOut: function (type, callback) {
 		let URL = '/api/workout/workout';
 
 		axios
@@ -62,17 +62,17 @@ export default {
 				exercise: type.exercise,
 				sets: type.sets,
 				reps: type.reps,
-				weight: type.weight
+				weight: type.weight,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				callback(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	},
 
-	deleteWorkOut: function(type, callback) {
+	deleteWorkOut: function (type, callback) {
 		let URL = '/api/workout/workout';
 
 		axios
@@ -81,17 +81,17 @@ export default {
 				exercise: type.exercise,
 				sets: type.sets,
 				reps: type.reps,
-				weight: type.weight
+				weight: type.weight,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				console.log(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	},
 
-	updateWorkOut: function(type, callback) {
+	updateWorkOut: function (type, callback) {
 		let URL = '/api/workout/workout';
 
 		axios
@@ -100,13 +100,26 @@ export default {
 				exercise: type.exercise,
 				sets: type.sets,
 				reps: type.reps,
-				weight: type.weight
+				weight: type.weight,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				console.log(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
-	}
+	},
+
+	saveProgress: function (type, callback) {
+		axios
+			.save({
+				currentWeight: type.currentWeight,
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	},
 };
