@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddWorkOut from './addWorkOut/AddWorkOut';
 import OutPutWork from './outPutWork/OutPutWork';
+import NavBar from '../navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import API from '../../utils/API';
 import { v4 as uuidv4 } from 'uuid';
@@ -170,6 +171,7 @@ class Workout extends Component {
 			<div className="main">
 				<div className="container">
 					<div className="row">
+						<NavBar />
 						<div className="col-10 mx-auto col-md mt-4">
 							<h4>WorkOut Log</h4>
 							<AddWorkOut

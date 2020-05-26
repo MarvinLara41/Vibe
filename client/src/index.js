@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Welcome from './components/welcome/Welcome';
-import Home from './components/home/Home';
+import Goals from './components/home/Goals';
 import ProtectRoute from './components/protectedRoute.js';
-import WorkOutOrder from './components/workout/WorkOutOrder.js';
+import WorkOut from './components/workout/WorkOut.js';
 import SignUp from './components/welcome/register/signUp';
 import Progress from './components/progress/Progress';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,9 +16,9 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={Welcome} />
-					<Route exact path="/home" component={Home} />
+					<ProtectRoute exact path="/goals" component={Goals} />
 					<Route exact path="register" component={SignUp} />
-					<ProtectRoute exact path="/workout" component={WorkOutOrder} />
+					<ProtectRoute exact path="/addworkout" component={WorkOut} />
 					<ProtectRoute exact path="/progress" component={Progress} />
 					<Route path="*" component={() => '404 NOT FOUND'} />
 				</Switch>

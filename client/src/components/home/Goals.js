@@ -3,32 +3,41 @@ import NavBar from '../navbar/Navbar';
 import auth from '../auth.js';
 import LoseWeight from './goals/loseWeight/loseWeight';
 import GainMuscle from './goals/gainMuscle/gainMuscle';
-// import API from '../../utils/API';
 import './home.css';
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			display: '',
+			lose: false,
+			gain: false,
 		};
-		this.handleGoalChange = this.handleGoalChange.bind(this);
+		this.submitLose = this.submitLose.bind(this);
+		this.submitGain = this.submitGain.bind(this);
 	}
 
-	handleGoalChange(e) {
+	submitLose(e) {
+		e.preventDefault();
 		this.setState({
-			display: e.target.value,
+			lose: true,
+		});
+	}
+
+	submitGain(e) {
+		e.preventDefault();
+		this.setState({
+			gain: true,
 		});
 	}
 
 	render() {
-		if (this.state.display === 'lose weight') {
+		if (this.state.lose === true) {
 			return (
 				<div>
 					<LoseWeight />
 				</div>
 			);
-		} else if (this.state.display === 'gain muscle') {
+		} else if (this.state.gain === true) {
 			return (
 				<div>
 					<GainMuscle />
@@ -38,21 +47,18 @@ class Home extends Component {
 
 		return (
 			<div className="dashboard">
-				<div className="target">
-					<h3>Welcome, let's set some goals</h3>
-					<p>What's your target?</p>
-					<div className="goal">
-						<input
-							className="input"
-							type="text"
-							placeholder="lose weight/ gain muscle"
-							className="input"
-							value={this.state.display}
-							onChange={this.handleGoalChange}
-						/>
+				<div>
+					<h4> What is your goal? </h4>
+					<div className="goals">
+						<button className="loseBtn" onClick={this.submitLose}>
+							Lose Weight
+						</button>
+
+						<button className="gainBtn" onClick={this.submitGain}>
+							Gain Weight
+						</button>
 					</div>
 				</div>
-
 				<div className="navBar">
 					<NavBar />
 					<button

@@ -5,9 +5,9 @@ import './nav.css';
 function Navbar() {
 	return (
 		<div className="bar">
-			<Link to="/home">Home</Link>
+			<Link to="/goals">Goals</Link>
 			<br />
-			<Link to="/workout">Workouts</Link>
+			<Link to="/addworkout">Add Workout</Link>
 			<br />
 			<Link to="/progress">Progress</Link>
 		</div>

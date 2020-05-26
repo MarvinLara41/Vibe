@@ -42,7 +42,7 @@ class Welcome extends Component {
 
 			if (cb.data.success) {
 				auth.login(() => {
-					this.props.history.push('/home');
+					this.props.history.push('/goals');
 				});
 			} else {
 				console.log('data error');
