@@ -82,7 +82,7 @@ export default class SignUp extends Component {
 					</button>
 				</div>
 
-				<form onSubmit={this.submitFormRegister}>
+				<form onSubmit={this.submitFormRegister} className="form-SignUp">
 					<div>{this.state.message.message}</div>
 					<br />
 					<input
@@ -107,7 +107,9 @@ export default class SignUp extends Component {
 					/>
 					<br />
 					<br />
-					<button type="submit">Sign Up</button>
+					<button type="submit" className="signUp-btn">
+						Sign Up
+					</button>
 				</form>
 			</div>
 		);

@@ -123,4 +123,23 @@ export default {
 				console.log(error);
 			});
 	},
+
+	saveWorkOut: function (type, callback) {
+		let URL = 'api/saveWorkOut/saveWorkOut';
+
+		axios
+			.post(URL, {
+				date: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight,
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	},
 };

@@ -1,18 +1,17 @@
 .dashboard {
-	width: 76vw;
-	margin: auto auto auto auto;
+	width: 75vw;
+	margin: auto;
+	display: inline-block;
 }
 
-.navbar {
-	width: 15vw;
-	position: relative;
-	left: 0;
-	height: 25vh;
+.target {
+	margin: auto;
+	margin-top: 3em;
 }
 
-.logOut {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	border-radius: 10px;
+.input {
+}
+
+.navBar {
+	float: left;
 }

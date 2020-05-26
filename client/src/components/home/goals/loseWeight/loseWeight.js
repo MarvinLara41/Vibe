@@ -44,36 +44,34 @@ class LoseWeight extends Component {
 		}
 		return (
 			<div className="loseWeight">
-				<NavBar className="lose-bar" />
-				<div className="container">
+				<NavBar className="loseWeightNav" />
+				<div className="facts">
 					<h2>
 						<b>Losing Weight</b>
 					</h2>
-					<div className="facts">
-						<p>
-							Let's get the facts straight before we start. Losing weight is
-							dependent on the amount of calories you consume. If you are on a
-							"diet" but you are consuming more calories than you burn you will
-							NOT lose weight! The "perfect diet " is the diet you are able to
-							maintain without giving up your happiness.
-						</p>
-						<div className="calulate">
-							<h3>Let's calculate your daily calorie intake</h3>
-							<form onSubmit={this.submitForm}>
-								<div className="message">
-									{this.state.message.message}
-									<br />
-								</div>
-								<input
-									type="number"
-									placeholder="current weight"
-									value={this.state.weight}
-									onChange={this.handleWeightChange}
-								/>
+					<p>
+						Let's get the facts straight before we start. Losing weight is
+						dependent on the amount of calories you consume. If you are on a
+						"diet" but you are consuming more calories than you burn you will
+						NOT lose weight! The "perfect diet " is the diet you are able to
+						maintain without giving up your happiness.
+					</p>
+					<div className="calulate">
+						<h3>Let's calculate your daily calorie intake</h3>
+						<form onSubmit={this.submitForm}>
+							<div className="message">
+								{this.state.message.message}
 								<br />
-								<button> Next </button>
-							</form>
-						</div>
+							</div>
+							<input
+								type="number"
+								placeholder="current weight"
+								value={this.state.weight}
+								onChange={this.handleWeightChange}
+							/>
+							<br />
+							<button> Next </button>
+						</form>
 					</div>
 				</div>
 			</div>

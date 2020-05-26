@@ -1,5 +1,5 @@
 .box-signUp {
-	margin-top: 3em;
+	margin-top: 5em;
 	margin: auto;
 	width: 60vw;
 }
@@ -9,6 +9,22 @@
 }
 
 .mainPage {
+	background-color: lightgray;
+	font-size: large;
+	color: black;
 	border-radius: 10px;
-	font-size: 14px;
+	width: 60px;
+}
+
+.form-SignUp {
+	width: 40vw;
+	margin: auto;
+}
+
+.signUp-btn {
+	background-color: lightgray;
+	font-size: large;
+	color: black;
+	border-radius: 10px;
+	width: 125px;
 }

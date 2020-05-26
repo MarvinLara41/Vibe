@@ -5,8 +5,9 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Welcome from './components/welcome/Welcome';
 import Home from './components/home/Home';
 import ProtectRoute from './components/protectedRoute.js';
-import Workout from './components/workout/Workout.js';
+import WorkOutOrder from './components/workout/WorkOutOrder.js';
 import SignUp from './components/welcome/register/signUp';
+import Progress from './components/progress/Progress';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
 					<Route exact path="/" component={Welcome} />
 					<Route exact path="/home" component={Home} />
 					<Route exact path="register" component={SignUp} />
-					<ProtectRoute exact path="/workout" component={Workout} />
+					<ProtectRoute exact path="/workout" component={WorkOutOrder} />
+					<ProtectRoute exact path="/progress" component={Progress} />
 					<Route path="*" component={() => '404 NOT FOUND'} />
 				</Switch>
 			</div>

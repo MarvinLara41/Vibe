@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-// const bcrypt = require("bcrypt");
 
 const Schema = mongoose.Schema;
 //this file is for the creation of the user on the database.
-const WorkOutSchema = new Schema({
+const saveWorkOutSchema = new Schema({
 	date: {
 		type: String,
 		default: '',
@@ -13,19 +12,19 @@ const WorkOutSchema = new Schema({
 		default: '',
 	},
 	sets: {
-		type: String,
+		type: Number,
 		default: '',
 	},
 	reps: {
-		type: String,
+		type: Number,
 		default: '',
 	},
 	weight: {
-		type: String,
+		type: Number,
 		default: '',
 	},
 });
 
-const workout = mongoose.model('WorkOuts', WorkOutSchema);
+const savedWorkOut = mongoose.model('SavedWorkOuts', saveWorkOutSchema);
 
-module.exports = workout;
+module.exports = savedWorkOut;

@@ -1,16 +1,18 @@
-.container {
-	width: 60vw;
+.loseWeight {
+	width: 70vw;
 	margin: auto;
-	margin-top: 3em;
-}
-
-.lose-bar {
-	width: 15vw;
-	left: 0;
-	height: 25vh;
+	display: flex;
 }
 
 .facts {
-	width: 40vw;
+	width: 50vw;
 	margin: auto;
+	margin-top: 3em;
+	display: inline-block;
+}
+
+.loseWeightNav {
+	margin-top: 3em;
+	margin: auto;
+	float: left;
 }

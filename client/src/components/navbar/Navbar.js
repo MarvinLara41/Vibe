@@ -9,6 +9,7 @@ function Navbar() {
 			<br />
 			<Link to="/workout">Workouts</Link>
 			<br />
+			<Link to="/progress">Progress</Link>
 		</div>
 	);
 }

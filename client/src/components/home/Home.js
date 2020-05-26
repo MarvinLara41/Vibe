@@ -10,14 +10,14 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			display: ''
+			display: '',
 		};
 		this.handleGoalChange = this.handleGoalChange.bind(this);
 	}
 
 	handleGoalChange(e) {
 		this.setState({
-			display: e.target.value
+			display: e.target.value,
 		});
 	}
 
@@ -38,24 +38,22 @@ class Home extends Component {
 
 		return (
 			<div className="dashboard">
-				<h3>Welcome, let's set some goals</h3>
-
-				<div className="welcomeDash">
-					<div className="target">
-						<p>What's your target?</p>
-						<div className="goal">
-							<input
-								className="input"
-								type="text"
-								placeholder="lose weight/ gain muscle"
-								value={this.state.display}
-								onChange={this.handleGoalChange}
-							/>
-						</div>
+				<div className="target">
+					<h3>Welcome, let's set some goals</h3>
+					<p>What's your target?</p>
+					<div className="goal">
+						<input
+							className="input"
+							type="text"
+							placeholder="lose weight/ gain muscle"
+							className="input"
+							value={this.state.display}
+							onChange={this.handleGoalChange}
+						/>
 					</div>
 				</div>
 
-				<div className="navbar">
+				<div className="navBar">
 					<NavBar />
 					<button
 						className="logOut"

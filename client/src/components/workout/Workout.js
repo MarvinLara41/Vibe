@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './workout.css';
-import Navbar from '../navbar/Navbar';
 import AddWorkOut from './addWorkOut/AddWorkOut';
 import OutPutWork from './outPutWork/OutPutWork';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,40 +15,40 @@ class Workout extends Component {
 		weight: '',
 		message: {},
 		id: uuidv4(),
-		editWorkOut: false
+		editWorkOut: false,
 	};
 
-	handleChange = e => {
+	handleChange = (e) => {
 		this.setState({
-			date: e.target.value
+			date: e.target.value,
 		});
 	};
 
-	handleChangeExercise = e => {
+	handleChangeExercise = (e) => {
 		this.setState({
-			exercise: e.target.value
+			exercise: e.target.value,
 		});
 	};
 
-	handleChangeSets = e => {
+	handleChangeSets = (e) => {
 		this.setState({
-			sets: e.target.value
+			sets: e.target.value,
 		});
 	};
 
-	handleChangeReps = e => {
+	handleChangeReps = (e) => {
 		this.setState({
-			reps: e.target.value
+			reps: e.target.value,
 		});
 	};
 
-	handleChangeWeight = e => {
+	handleChangeWeight = (e) => {
 		this.setState({
-			weight: e.target.value
+			weight: e.target.value,
 		});
 	};
 
-	handleSubmit = e => {
+	handleSubmit = (e) => {
 		e.preventDefault();
 
 		let workOutId = {
@@ -59,13 +57,15 @@ class Workout extends Component {
 			exerciseTitle: this.state.exercise,
 			setsTitle: this.state.sets,
 			repsTitle: this.state.reps,
-			weightTitle: this.state.weight
+			weightTitle: this.state.weight,
 		};
 
 		const upDatedWorkOut = [...this.state.workOuts, workOutId];
 
 		console.log(workOutId);
-
+		API.saveWorkOut(this.state, (callback) => {
+			console.log(callback);
+		});
 		this.setState({
 			workOuts: upDatedWorkOut,
 			date: '',
@@ -74,28 +74,28 @@ class Workout extends Component {
 			reps: '',
 			weight: '',
 			id: uuidv4(),
-			editWorkOut: false
+			editWorkOut: false,
 		});
 	};
 
 	clearWorkOuts = () => {
 		this.setState({
-			workOuts: []
+			workOuts: [],
 		});
 	};
 
-	handleDelete = id => {
-		const filterDate = this.state.workOuts.filter(date => date.id !== id);
+	handleDelete = (id) => {
+		const filterDate = this.state.workOuts.filter((date) => date.id !== id);
 
 		const filterExercise = this.state.workOuts.filter(
-			exercise => exercise.id !== id
+			(exercise) => exercise.id !== id
 		);
 
-		const filterSets = this.state.sets.filter(sets => sets.id !== id);
+		const filterSets = this.state.sets.filter((sets) => sets.id !== id);
 
-		const filterReps = this.state.reps.filter(reps => reps.id !== id);
+		const filterReps = this.state.reps.filter((reps) => reps.id !== id);
 
-		const filterWeight = this.state.weight.filter(weight => weight.id !== id);
+		const filterWeight = this.state.weight.filter((weight) => weight.id !== id);
 
 		this.setState({
 			workOuts: {
@@ -103,23 +103,23 @@ class Workout extends Component {
 				filterExercise,
 				filterReps,
 				filterSets,
-				filterWeight
-			}
+				filterWeight,
+			},
 		});
 	};
 
-	handleEdit = id => {
-		const filterDate = this.state.workOuts.filter(date => date.id !== id);
+	handleEdit = (id) => {
+		const filterDate = this.state.workOuts.filter((date) => date.id !== id);
 
 		const filterExercise = this.state.workOuts.filter(
-			exercise => exercise.id !== id
+			(exercise) => exercise.id !== id
 		);
 
-		const filterSets = this.state.sets.filter(sets => sets.id !== id);
+		const filterSets = this.state.sets.filter((sets) => sets.id !== id);
 
-		const filterReps = this.state.reps.filter(reps => reps.id !== id);
+		const filterReps = this.state.reps.filter((reps) => reps.id !== id);
 
-		const filterWeight = this.state.weight.filter(weight => weight.id !== id);
+		const filterWeight = this.state.weight.filter((weight) => weight.id !== id);
 
 		this.setState({
 			workOuts: {
@@ -127,21 +127,23 @@ class Workout extends Component {
 				filterExercise,
 				filterReps,
 				filterSets,
-				filterWeight
-			}
+				filterWeight,
+			},
 		});
 
-		const selectedDate = this.state.workOuts.find(date => date.id === id);
+		const selectedDate = this.state.workOuts.find((date) => date.id === id);
 
 		const selectedExercise = this.state.workOuts.find(
-			exercise => exercise.id === id
+			(exercise) => exercise.id === id
 		);
 
-		const selectedSets = this.state.workOuts.find(sets => sets.id === id);
+		const selectedSets = this.state.workOuts.find((sets) => sets.id === id);
 
-		const selectedWeight = this.state.workOuts.find(weight => weight.id === id);
+		const selectedWeight = this.state.workOuts.find(
+			(weight) => weight.id === id
+		);
 
-		const selectedReps = this.state.workOuts.find(reps => reps.id === id);
+		const selectedReps = this.state.workOuts.find((reps) => reps.id === id);
 
 		this.setState({
 			workOuts: {
@@ -149,26 +151,23 @@ class Workout extends Component {
 				filterExercise,
 				filterReps,
 				filterSets,
-				filterWeight
+				filterWeight,
 			},
 			workOut: {
 				selectedDate,
 				selectedExercise,
 				selectedReps,
 				selectedSets,
-				selectedWeight
+				selectedWeight,
 			},
 			editWorkOut: true,
-			id: id
+			id: id,
 		});
 	};
 
 	render() {
 		return (
 			<div className="main">
-				<div className="nav">
-					<Navbar />
-				</div>
 				<div className="container">
 					<div className="row">
 						<div className="col-10 mx-auto col-md mt-4">
