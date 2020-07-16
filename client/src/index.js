@@ -16,9 +16,9 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={Welcome} />
-					<ProtectRoute exact path="/goals" component={Goals} />
-					{/* <Route exact path="register" component={SignUp} />
-					<ProtectRoute exact path="/addworkout" component={WorkOut} />
+					{/* <ProtectRoute exact path="/goals" component={Goals} /> */}
+					<Route exact path="/register" component={SignUp} />
+					{/* <ProtectRoute exact path="/addworkout" component={WorkOut} />
 					<ProtectRoute exact path="/progress" component={Progress} /> */}
 					<Route path="*" component={() => '404 NOT FOUND'} />
 				</Switch>
