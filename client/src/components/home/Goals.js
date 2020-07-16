@@ -47,7 +47,7 @@ class Home extends Component {
 
 		return (
 			<div className="dashboard">
-				<div>
+				<div className="goal-container">
 					<h4> What is your goal? </h4>
 					<div className="goals">
 						<button className="loseBtn" onClick={this.submitLose}>

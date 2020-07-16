@@ -1,3 +1,6 @@
-.bar {
+.navigation_ul li:hover {
+	border-bottom-style: solid;
+	color: rgb(137, 185, 181);
+	font-stretch: extra-expanded;
 	font-size: 22px;
 }

@@ -9,9 +9,30 @@
 	margin-top: 3em;
 }
 
-.input {
+.goal-container {
+	margin-top: 5em;
 }
 
 .navBar {
 	float: left;
+}
+
+.loseBtn {
+	border-radius: 10px;
+	margin: 3px 3px;
+}
+
+.loseBtn:hover {
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+
+.gainBtn {
+	border-radius: 10px;
+	margin: 3px 3px;
+}
+
+.gainBtn:hover {
+	text-decoration: underline;
+	text-transform: uppercase;
 }

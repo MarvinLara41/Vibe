@@ -1,13 +1,12 @@
 .container {
 	width: 75vw;
 	display: flex;
-	margin-top: 3em;
+	margin-top: 5em;
 }
 
 .table {
 	width: 40vw;
-	margin: auto;
-	margin-left: 25em;
+	margin-left: 15em;
 }
 
 .progressNav {

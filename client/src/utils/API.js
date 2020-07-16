@@ -53,25 +53,6 @@ export default {
 			});
 	},
 
-	previousWorkOut: function (type, callback) {
-		let URL = '/api/workout/workout';
-
-		axios
-			.get(URL, {
-				data: type.date,
-				exercise: type.exercise,
-				sets: type.sets,
-				reps: type.reps,
-				weight: type.weight,
-			})
-			.then(function (response) {
-				callback(response);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-	},
-
 	deleteWorkOut: function (type, callback) {
 		let URL = '/api/workout/workout';
 
@@ -137,6 +118,25 @@ export default {
 			})
 			.then(function (response) {
 				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	},
+
+	getSavedWorkOut: function (type, callback) {
+		let URL = '/api/getWorkOut/getWorkOut';
+
+		axios
+			.get(URL, {
+				date: type.date,
+				exercise: type.exercise,
+				sets: type.sets,
+				reps: type.reps,
+				weight: type.weight,
+			})
+			.then(function (response) {
+				callback(response);
 			})
 			.catch(function (error) {
 				console.log(error);

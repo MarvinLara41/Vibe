@@ -28,10 +28,10 @@ class LoseWeight extends Component {
 		API.saveProgress(this.state, (callback) => {
 			console.log(callback);
 		});
-		this.setState({
-			weight: [],
-			progress: true,
-		});
+		// this.setState({
+		// 	weight: [],
+		// 	progress: true,
+		// });
 	}
 
 	render() {

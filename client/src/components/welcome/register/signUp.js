@@ -75,42 +75,44 @@ export default class SignUp extends Component {
 		}
 		return (
 			<div className="box-signUp">
-				<h3> Register your account Info</h3>
-				<div className="signUp-home">
-					<button className="mainPage" onClick={this.handleHome}>
-						Main Page
-					</button>
-				</div>
+				<div className="box">
+					<h3> Register your account Info</h3>
+					<div className="signUp-home">
+						<button className="mainPage" onClick={this.handleHome}>
+							Main Page
+						</button>
+					</div>
 
-				<form onSubmit={this.submitFormRegister} className="form-SignUp">
-					<div>{this.state.message.message}</div>
-					<br />
-					<input
-						placeholder="Email"
-						onChange={this.handleChangeEmail}
-						value={this.state.email}
-						type="Email"
-					/>
-					<br />
-					<input
-						placeholder="User Name"
-						onChange={this.handleChangeUserId}
-						value={this.state.userId}
-						type="User Name"
-					/>
-					<br />
-					<input
-						placeholder="Password"
-						onChange={this.handleChangePassword}
-						value={this.state.password}
-						type="Password"
-					/>
-					<br />
-					<br />
-					<button type="submit" className="signUp-btn">
-						Sign Up
-					</button>
-				</form>
+					<form onSubmit={this.submitFormRegister} className="form-SignUp">
+						<div>{this.state.message.message}</div>
+						<br />
+						<input
+							placeholder="Email"
+							onChange={this.handleChangeEmail}
+							value={this.state.email}
+							type="Email"
+						/>
+						<br />
+						<input
+							placeholder="User Name"
+							onChange={this.handleChangeUserId}
+							value={this.state.userId}
+							type="User Name"
+						/>
+						<br />
+						<input
+							placeholder="Password"
+							onChange={this.handleChangePassword}
+							value={this.state.password}
+							type="Password"
+						/>
+						<br />
+						<br />
+						<button type="submit" className="signUp-btn">
+							Sign Up
+						</button>
+					</form>
+				</div>
 			</div>
 		);
 	}
