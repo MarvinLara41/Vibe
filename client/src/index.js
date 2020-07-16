@@ -6,7 +6,7 @@ import Welcome from './components/welcome/Welcome';
 import Goals from './components/home/Goals';
 import ProtectRoute from './components/protectedRoute.js';
 import WorkOut from './components/workout/WorkOut.js';
-import SignUp from './components/welcome/register/signUp';
+import Register from './components/welcome/register/register';
 import Progress from './components/progress/Progress';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,7 +17,7 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Welcome} />
 					{/* <ProtectRoute exact path="/goals" component={Goals} /> */}
-					<Route exact path="/register" component={SignUp} />
+					<Route exact path="/register" component={Register} />
 					{/* <ProtectRoute exact path="/addworkout" component={WorkOut} />
 					<ProtectRoute exact path="/progress" component={Progress} /> */}
 					<Route path="*" component={() => '404 NOT FOUND'} />
