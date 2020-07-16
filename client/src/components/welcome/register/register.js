@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import API from '../../../utils/API';
-import Welcome from './../Welcome';
 
 function Register(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [userName, setUserName] = useState('');
-	const [home, setHome] = useState(false);
 
 	// submitFormRegister(e) {
 	// 	e.preventDefault();

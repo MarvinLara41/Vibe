@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import API from '../../utils/API';
-import auth from '../auth.js';
 import Register from './register/register';
-// import { withRouter } from 'react-router-dom';
 
 function Welcome(props) {
 	const [email, setEmail] = useState('');
@@ -10,6 +7,10 @@ function Welcome(props) {
 
 	const registerBtn = (e) => {
 		props.history.push('/register');
+	};
+
+	const signinBtn = (e) => {
+		props.history.push('/signin');
 	};
 
 	return (
@@ -32,7 +33,7 @@ function Welcome(props) {
 						Register
 					</button>
 
-					<button type="submit" className="welcome-signin">
+					<button type="submit" onClick={signinBtn} className="welcome-signin">
 						Sign In
 					</button>
 				</div>

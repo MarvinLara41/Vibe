@@ -2,12 +2,14 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
+const config = require('./config');
 const PORT = process.env.PORT || 5010;
-const routes = require('./routes');
-require('dotenv').config();
+const userRoute = require('./routes/userRoute');
+const bodyParser = require('body-parser');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
@@ -16,22 +18,19 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/public'));
 }
 
-// Add routes, both API and vie
-app.use(routes);
+// Add routes, both API and view
 
 // Connect to the Mongo DB
-mongoose.connect(
-	process.env.MONGODB_URI || 'mongodb://localhost:27017/lightw8',
-	{ useNewUrlParser: true },
+const MONGODB_URI = config.MONGODB_URI;
 
-	console.log('Connected to DB')
-);
+mongoose
+	.connect(MONGODB_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.catch((error) => console.log(error.reason));
 
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.on('open', function callback() {
-	console.log('connected to DB');
-});
+app.use('/api/users', userRoute);
 
 // Start the API server
 app.listen(PORT, function () {
