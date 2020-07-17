@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
-import Register from './register/register';
+import React from 'react';
 
 function Welcome(props) {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-
 	const registerBtn = (e) => {
 		props.history.push('/register');
 	};
@@ -16,14 +12,13 @@ function Welcome(props) {
 	return (
 		<div className="welcome-container">
 			<div className="welcome-gif">
-				<p>
-					<b>
-						<div className="welcome-logo">L</div>i
-						<div className="welcome-logo">g</div>h
-						<div className="welcome-logo">t</div>W
-						<div className="welcome-logo">8</div>
-					</b>
-				</p>
+				<b>
+					<div className="welcome-logo">L</div>i
+					<div className="welcome-logo">g</div>h
+					<div className="welcome-logo">t</div>W
+					<div className="welcome-logo">8</div>
+				</b>
+
 				<div className="welcome-logon">
 					<button
 						type="submit"

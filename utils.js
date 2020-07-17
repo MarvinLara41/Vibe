@@ -5,9 +5,9 @@ const getToken = (user) => {
 	return jwt.sign(
 		{
 			_id: user._id,
-			name: user.name,
+			userName: user.userName,
 			email: user.email,
-			isAdmin: user.isAdmin,
+			isCoach: user.isCoach,
 		},
 		config.JWT_SECRET,
 		{

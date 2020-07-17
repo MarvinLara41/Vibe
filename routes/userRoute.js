@@ -1,10 +1,10 @@
 const express = require('express');
-const User = require('../models/userModel');
+const userModel = require('../models/userModel');
 const { getToken, isAuth } = require('../utils');
 const router = express.Router();
 
 router.post('/signin', async (req, res) => {
-	const signinUser = await User.findOne({
+	const signinUser = await userModel.findOne({
 		email: req.body.email,
 		password: req.body.password,
 	});
@@ -18,6 +18,27 @@ router.post('/signin', async (req, res) => {
 		});
 	} else {
 		res.status(401).send({ msg: 'Invalid Email or Password' });
+	}
+});
+
+router.post('/register', async (req, res) => {
+	const user = new userModel({
+		userName: req.body.userName,
+		email: req.body.email,
+		password: req.body.password,
+	});
+
+	const newUser = await user.save();
+	if (newUser) {
+		res.send({
+			_id: newUser.id,
+			userName: newUser.userName,
+			email: newUser.email,
+			isCoach: newUser.isCoach,
+			token: getToken(newUser),
+		});
+	} else {
+		res.status(401).send({ msg: 'Invalid User data.' });
 	}
 });
 

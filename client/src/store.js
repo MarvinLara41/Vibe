@@ -1,7 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import Cookie from 'js-cookie';
 import thunk from 'redux-thunk';
-import { userSigninReducer } from './reducers/userReducers';
+import {
+	userSigninReducer,
+	userRegisterReducer,
+} from './reducers/userReducers';
 
 const userInfo = Cookie.getJSON('userInfo') || null;
 
@@ -11,6 +14,7 @@ const intialState = {
 
 const reducer = combineReducers({
 	userSignin: userSigninReducer,
+	userRegister: userRegisterReducer,
 });
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

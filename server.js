@@ -8,6 +8,7 @@ const userRoute = require('./routes/userRoute');
 const bodyParser = require('body-parser');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 

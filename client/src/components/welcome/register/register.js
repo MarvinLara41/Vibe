@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { register } from '../../../actions/userActions';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Register(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [userName, setUserName] = useState('');
+	const userRegister = useSelector((state) => state.userRegister);
+	const { loading, userInfo, error } = userRegister;
+	const dispatch = useDispatch();
 
-	// submitFormRegister(e) {
-	// 	e.preventDefault();
-	// 	API.sign_Up(this.state, (callback) => {
-	// 		console.log(callback);
-	// 		this.setState({ message: callback.data });
-	// 		if (callback.data.success) {
-	// 			window.location.assign('/');
-	// 		}
-	// 	});
-	// }
 	const submitFormRegister = (e) => {
 		e.preventDefault();
-		console.log('submit Register');
+		dispatch(register(userName, email, password));
 	};
 
 	const welcomeBtn = (e) => {
+		e.preventDefault();
+
 		props.history.push('/');
 	};
+
+	useEffect(() => {
+		if (userInfo) {
+			props.history.push('/profile');
+		}
+		return () => {};
+	}, [userInfo]);
 
 	return (
 		<div className="register-container">
@@ -35,11 +39,16 @@ function Register(props) {
 					<br />
 					<ul>
 						<li>
+							{/* {loading && <div> Loading... </div>}
+							{error && <div> {error}</div>} */}
+						</li>
+						<li>
 							<label> Enter User Name </label>{' '}
 							<input
 								type="username"
-								value={userName}
 								name="username"
+								id="userName"
+								value={userName}
 								placeholder="Enter UserName"
 								onChange={(e) => setUserName(e.target.value)}
 							/>
@@ -48,8 +57,9 @@ function Register(props) {
 							<label> Enter Email </label>{' '}
 							<input
 								type="email"
-								value={email}
 								name="email"
+								id="email"
+								value={email}
 								placeholder="Enter Email"
 								onChange={(e) => setEmail(e.target.value)}
 							/>
@@ -58,13 +68,14 @@ function Register(props) {
 							<label> Enter Password </label>{' '}
 							<input
 								type="password"
-								value={password}
 								name="password"
+								id="password"
 								placeholder="Enter Password"
+								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</li>{' '}
-						<button>Sign-Up</button>
+						<button type="submit">Sign-Up</button>
 					</ul>
 				</form>
 			</div>
