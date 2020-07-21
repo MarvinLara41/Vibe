@@ -6,7 +6,8 @@ import { logout } from '../../actions/userActions';
 function Nav(props) {
 	const dispatch = useDispatch();
 
-	const handleLogout = () => {
+	const handleLogout = (e) => {
+		e.preventDefault();
 		dispatch(logout());
 		props.history.push('/signin');
 	};

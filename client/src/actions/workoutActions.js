@@ -6,6 +6,9 @@ import {
 	WORKOUT_DELETE_FAIL,
 	WORKOUT_DELETE_SUCCESS,
 	WORKOUT_DELETE_REQUEST,
+	WORKOUT_PERSONAL_LIST_REQUEST,
+	WORKOUT_PERSONAL_LIST_FAIL,
+	WORKOUT_PERSONAL_LIST_SUCCESS,
 } from '../constants/workoutConstants';
 
 const workoutSave = (workout) => async (dispatch, getState) => {
@@ -51,4 +54,19 @@ const workoutDelete = (workoutId) => async (dispatch, getState) => {
 	}
 };
 
-export { workoutSave, workoutDelete };
+const workoutPersonalList = () => async (dispatch, getState) => {
+	try {
+		dispatch({ type: WORKOUT_PERSONAL_LIST_REQUEST });
+		const {
+			userSignin: { userInfo },
+		} = getState();
+		const { data } = await axios.get('/api/orders/mine', {
+			headers: { Authorization: 'Bearer ' + userInfo.token },
+		});
+		dispatch({ type: WORKOUT_PERSONAL_LIST_SUCCESS, payload: data });
+	} catch (error) {
+		dispatch({ type: WORKOUT_PERSONAL_LIST_FAIL, payload: error.message });
+	}
+};
+
+export { workoutSave, workoutDelete, workoutPersonalList };

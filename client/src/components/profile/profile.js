@@ -25,6 +25,9 @@ function Profile(props) {
 	const [date, setDate] = useState('');
 	const [time, setTime] = useState('');
 
+	const workoutList = useSelector((state) => state.workoutList);
+	const { loading, workouts, error } = workoutList;
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 
@@ -45,10 +48,13 @@ function Profile(props) {
 		dispatch(workoutDelete(workout._id));
 	};
 
-	// useEffect(() => {
-	// 	dispatch(listProducts());
-	// 	return () => {};
-	// }, []);
+	useEffect(() => {
+		if (userInfo) {
+			console.log(userInfo.email);
+		}
+		dispatch(workoutList());
+		return () => {};
+	}, []);
 
 	return (
 		<div className="profile-container">
@@ -141,8 +147,7 @@ function Profile(props) {
 									<td>{workout.time}</td>
 									<td>
 										<button onClick={() => deleteHandler(workout)}>
-											{' '}
-											Delete{' '}
+											Delete
 										</button>
 									</td>
 								</tr>

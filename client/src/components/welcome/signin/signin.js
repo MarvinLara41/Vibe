@@ -5,19 +5,24 @@ import { signin } from '../../../actions/userActions';
 function SignIn(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
 	const userSignin = useSelector((state) => state.userSignin);
 	const { loading, userInfo, error } = userSignin;
+
 	const dispatch = useDispatch();
+
 	const redirect = props.location.search
 		? props.location.search.split('=')[1]
 		: '/profile';
 
 	const backBtn = (e) => {
+		e.preventDefault();
+
 		props.history.push('/');
 	};
 
-	const signinBtn = (e) => {
-		e.preventdefault();
+	const signinHandler = (e) => {
+		e.preventDefault();
 		dispatch(signin(email, password));
 	};
 
@@ -25,9 +30,7 @@ function SignIn(props) {
 		if (userInfo) {
 			props.history.push(redirect);
 		}
-		return () => {
-			//
-		};
+		return () => {};
 	}, [userInfo]);
 
 	return (
@@ -37,7 +40,7 @@ function SignIn(props) {
 				<div className="signin-backBtn">
 					<button onClick={backBtn}> Back </button>
 				</div>
-				<form onSubmit={signinBtn}>
+				<form onSubmit={signinHandler}>
 					<ul>
 						<li>
 							<li>
