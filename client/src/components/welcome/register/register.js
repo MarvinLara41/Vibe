@@ -34,7 +34,7 @@ function Register(props) {
 				<div className="register-backBtn">
 					<button onClick={welcomeBtn}>Back</button>
 				</div>
-				<form onClick={submitFormRegister}>
+				<form onSubmit={submitFormRegister}>
 					<h4> Sign-Up </h4>
 					<br />
 					<ul>

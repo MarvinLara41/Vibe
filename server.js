@@ -6,6 +6,7 @@ const config = require('./config');
 const PORT = process.env.PORT || 5010;
 const userRoute = require('./routes/userRoute');
 const bodyParser = require('body-parser');
+const workoutRoute = require('./routes/workoutRoute');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,6 +33,7 @@ mongoose
 	.catch((error) => console.log(error.reason));
 
 app.use('/api/users', userRoute);
+app.use('/api/workout', workoutRoute);
 
 // Start the API server
 app.listen(PORT, function () {

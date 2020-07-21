@@ -6,6 +6,8 @@ import {
 	userRegisterReducer,
 } from './reducers/userReducers';
 
+import { workoutSaveReducer } from './reducers/workoutReducer';
+
 const userInfo = Cookie.getJSON('userInfo') || null;
 
 const intialState = {
@@ -15,6 +17,7 @@ const intialState = {
 const reducer = combineReducers({
 	userSignin: userSigninReducer,
 	userRegister: userRegisterReducer,
+	workoutSave: workoutSaveReducer,
 });
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

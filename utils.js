@@ -11,7 +11,7 @@ const getToken = (user) => {
 		},
 		config.JWT_SECRET,
 		{
-			expiresIn: '48h',
+			expiresIn: '2h',
 		}
 	);
 };
@@ -38,4 +38,11 @@ const isAuth = (req, res, next) => {
 		});
 	}
 };
-module.exports = { getToken, isAuth };
+
+const isCoach = (req, res, next) => {
+	if (req.user && req.user.isCoach) {
+		return next();
+	}
+	return res.status(401).send({ message: 'Admin Token is not valid.' });
+};
+module.exports = { getToken, isAuth, isCoach };

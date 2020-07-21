@@ -1,43 +1,45 @@
 {
-  "name": "lightw8",
-  "version": "1.0.0",
-  "description": "weight lifting tracking app",
-  "main": "server.js",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MarvinLara41/LightW8.git"
-  },
-  "author": "Marvin Lara",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MarvinLara41/LightW8/issues"
-  },
-  "proxy": "http://localhost:5010",
-  "dependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/node": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "axios": "^0.19.2",
-    "bcrypt": "^4.0.1",
-    "body-parser": "^1.19.0",
-    "concurrently": "^5.2.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongojs": "^3.1.0",
-    "mongoose": "^5.9.24",
-    "nodemon": "^2.0.4",
-    "path": "^0.12.7"
-  }
+	"name": "lightw8",
+	"version": "1.0.0",
+	"description": "weight lifting tracking app",
+	"main": "server.js",
+	"scripts": {
+		"start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+		"start:prod": "node server.js",
+		"start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+		"client": "cd client && npm run start",
+		"seed": "node scripts/seedDB.js",
+		"install": "cd client && npm install",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MarvinLara41/LightW8.git"
+	},
+	"author": "Marvin Lara",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/MarvinLara41/LightW8/issues"
+	},
+	"proxy": "http://127.0.0.1:5010",
+	"dependencies": {
+		"axios": "^0.19.2",
+		"bcrypt": "^4.0.1",
+		"body-parser": "^1.19.0",
+		"concurrently": "^5.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongojs": "^3.1.0",
+		"mongoose": "^5.9.24",
+		"nodemon": "^2.0.4",
+		"path": "^0.12.7"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.10.5",
+		"@babel/core": "^7.10.5",
+		"@babel/node": "^7.10.5",
+		"@babel/preset-env": "^7.10.4"
+	}
 }

@@ -14,6 +14,7 @@ router.post('/signin', async (req, res) => {
 			_id: signinUser.id,
 			userName: signinUser.userName,
 			email: signinUser.email,
+			isCoach: signinUser.isCoach,
 			token: getToken(signinUser),
 		});
 	} else {
