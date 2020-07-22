@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import {
+	Switch,
+	Route,
+	BrowserRouter as Router,
+	withRouter,
+} from 'react-router-dom';
 import Welcome from './components/welcome/Welcome';
 import Register from './components/welcome/register/register';
 import Signin from './components/welcome/signin/signin';
 import Profile from './components/profile/profile';
+import AddWorkOut from './components/addWorkOut/addWorkOut';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -19,6 +25,7 @@ function App() {
 					<Route path="/register" component={Register} />
 					<Route path="/signin" component={Signin} />
 					<Route path="/profile" component={Profile} />
+					<Route path="/addworkout" component={AddWorkOut} />
 					<Route path="*" component={() => '404 NOT FOUND'} />
 				</Switch>
 			</div>

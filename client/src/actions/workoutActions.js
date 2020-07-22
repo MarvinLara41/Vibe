@@ -54,13 +54,13 @@ const workoutDelete = (workoutId) => async (dispatch, getState) => {
 	}
 };
 
-const workoutPersonalList = () => async (dispatch, getState) => {
+const listMyPersonalWorkOuts = () => async (dispatch, getState) => {
 	try {
 		dispatch({ type: WORKOUT_PERSONAL_LIST_REQUEST });
 		const {
 			userSignin: { userInfo },
 		} = getState();
-		const { data } = await axios.get('/api/orders/mine', {
+		const { data } = await axios.get('/api/workout/mine', {
 			headers: { Authorization: 'Bearer ' + userInfo.token },
 		});
 		dispatch({ type: WORKOUT_PERSONAL_LIST_SUCCESS, payload: data });
@@ -69,4 +69,4 @@ const workoutPersonalList = () => async (dispatch, getState) => {
 	}
 };
 
-export { workoutSave, workoutDelete, workoutPersonalList };
+export { workoutSave, workoutDelete, listMyPersonalWorkOuts };

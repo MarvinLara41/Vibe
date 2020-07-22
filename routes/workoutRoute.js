@@ -1,8 +1,9 @@
 const express = require('express');
 const workoutModel = require('../models/workoutModel');
+const { getToken, isAuth } = require('../utils');
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', isAuth, async (req, res) => {
 	const workout = new workoutModel({
 		exercise: req.body.exercise,
 		reps: req.body.reps,
@@ -21,6 +22,11 @@ router.post('/', async (req, res) => {
 	}
 
 	return res.status(500).send({ message: 'Error in saving workout.' });
+});
+
+router.get('/mine', isAuth, async (req, res) => {
+	const workouts = await workoutModel.find({ user: req.user._id });
+	res.send(workouts);
 });
 
 module.exports = router;

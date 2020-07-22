@@ -7,14 +7,19 @@ function Nav(props) {
 	const dispatch = useDispatch();
 
 	const handleLogout = (e) => {
-		e.preventDefault();
 		dispatch(logout());
-		props.history.push('/signin');
+		// props.history.push('/signin');
 	};
 	return (
 		<div className="nav-container">
 			<div className="nav-box">
 				<ul>
+					<li>
+						<Link to="/profile"> Profile </Link>
+					</li>
+					<li>
+						<Link to="/addworkout"> Add WorkOut </Link>
+					</li>
 					<li>
 						<button type="button" onClick={handleLogout}>
 							Logout
