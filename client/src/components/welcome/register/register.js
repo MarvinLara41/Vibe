@@ -39,8 +39,8 @@ function Register(props) {
 					<br />
 					<ul>
 						<li>
-							{/* {loading && <div> Loading... </div>}
-							{error && <div> {error}</div>} */}
+							{loading && <div> Loading... </div>}
+							{error && <div> {error}</div>}
 						</li>
 						<li>
 							<label> Enter User Name </label>{' '}

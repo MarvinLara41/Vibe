@@ -49,4 +49,38 @@ const logout = () => (dispatch) => {
 	dispatch({ type: USER_LOGOUT });
 };
 
-export { signin, register, logout };
+const update = ({ userId, userName, email, password }) => async (
+	dispatch,
+	getState
+) => {
+	const {
+		userSignin: { userInfo },
+	} = getState();
+
+	dispatch({
+		type: USER_UPDATE_REQUEST,
+		payload: { userId, userName, email, password },
+	});
+
+	try {
+		const { data } = await axios.put(
+			'/api/users' + userId,
+			{
+				userName,
+				email,
+				password,
+			},
+			{
+				headers: {
+					Authorization: 'Bearer' + userInfo.token,
+				},
+			}
+		);
+		dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
+		Cookie.set('userInfo', JSON.stringify(data));
+	} catch (error) {
+		dispatch({ type: USER_UPDATE_FAIL, payload: error.message });
+	}
+};
+
+export { signin, register, logout, update };

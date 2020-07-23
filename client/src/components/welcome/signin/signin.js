@@ -43,10 +43,10 @@ function SignIn(props) {
 				<form onSubmit={signinHandler}>
 					<ul>
 						<li>
-							<li>
-								{loading && <div> Loading... </div>}
-								{error && <div> {error} </div>}
-							</li>
+							{loading && <div> Loading... </div>}
+							{error && <div> {error} </div>}
+						</li>
+						<li>
 							<input
 								type="email"
 								placeholder="Email"

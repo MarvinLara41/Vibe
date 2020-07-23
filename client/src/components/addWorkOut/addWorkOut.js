@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Nav from '../navigation/nav';
-import {
-	workoutSave,
-	workoutDelete,
-	workoutPersonalList,
-} from '../../actions/workoutActions';
+import { workoutSave } from '../../actions/workoutActions';
 
 function AddWorkOut(props) {
 	const dispatch = useDispatch();
@@ -43,6 +38,7 @@ function AddWorkOut(props) {
 				time,
 			})
 		);
+		props.history.push('/profile');
 	};
 
 	return (

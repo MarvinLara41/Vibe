@@ -4,11 +4,11 @@ import thunk from 'redux-thunk';
 import {
 	userSigninReducer,
 	userRegisterReducer,
+	userUpdateReducer,
 } from './reducers/userReducers';
 
 import {
 	workoutSaveReducer,
-	workoutListReducer,
 	workoutPersonalListReducer,
 } from './reducers/workoutReducer';
 
@@ -22,8 +22,8 @@ const reducer = combineReducers({
 	userSignin: userSigninReducer,
 	userRegister: userRegisterReducer,
 	workoutSave: workoutSaveReducer,
-	workoutList: workoutListReducer,
 	workoutPersonalList: workoutPersonalListReducer,
+	userUpdate: userUpdateReducer,
 });
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

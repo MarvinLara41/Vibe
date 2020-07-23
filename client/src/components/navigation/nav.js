@@ -8,7 +8,7 @@ function Nav(props) {
 
 	const handleLogout = (e) => {
 		dispatch(logout());
-		// props.history.push('/signin');
+		this.props.history.push('/signin');
 	};
 	return (
 		<div className="nav-container">

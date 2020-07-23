@@ -1,7 +1,7 @@
 const express = require('express');
 const userModel = require('../models/userModel');
-const { getToken, isAuth } = require('../utils');
 const router = express.Router();
+const { getToken, isAuth } = require('../utils');
 
 router.post('/signin', async (req, res) => {
 	const signinUser = await userModel.findOne({
@@ -40,6 +40,26 @@ router.post('/register', async (req, res) => {
 		});
 	} else {
 		res.status(401).send({ msg: 'Invalid User data.' });
+	}
+});
+
+router.put('/:id', isAuth, async (req, res) => {
+	const userId = req.params.id;
+	const user = await userModel.findById(userId);
+	if (user) {
+		user.userName = req.body.userName || user.userName;
+		user.email = req.body.email || user.email;
+		user.password = req.body.password || user.password;
+		const updatedUser = await user.save();
+		res.send({
+			_id: updatedUser.id,
+			userName: updatedUser.userName,
+			email: updatedUser.email,
+			isCoach: updatedUser.isCoach,
+			token: getToken(updatedUser),
+		});
+	} else {
+		res.status(404).send({ msg: 'Error Updating.' });
 	}
 });
 
