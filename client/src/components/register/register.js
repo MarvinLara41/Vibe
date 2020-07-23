@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { register } from '../../../actions/userActions';
+import { register } from '../../actions/userActions';
 import { useSelector, useDispatch } from 'react-redux';
 
 function Register(props) {

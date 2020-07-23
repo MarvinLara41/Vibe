@@ -64,7 +64,7 @@ const update = ({ userId, userName, email, password }) => async (
 
 	try {
 		const { data } = await axios.put(
-			'/api/users' + userId,
+			'/api/users/' + userId,
 			{
 				userName,
 				email,

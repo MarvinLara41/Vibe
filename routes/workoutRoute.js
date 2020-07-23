@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post('/', isAuth, async (req, res) => {
 	const workout = new workoutModel({
+		user: req.user._id,
 		exercise: req.body.exercise,
 		reps: req.body.reps,
 		sets: req.body.sets,

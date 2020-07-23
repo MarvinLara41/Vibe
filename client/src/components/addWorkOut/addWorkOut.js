@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Nav from '../navigation/nav';
 import { workoutSave } from '../../actions/workoutActions';
 
 function AddWorkOut(props) {
@@ -9,6 +8,13 @@ function AddWorkOut(props) {
 	const userSignin = useSelector((state) => state.userSignin);
 	const { userInfo } = userSignin;
 
+	// const workoutSave = useSelector((state) => state.workoutSave);
+	// const {
+	// 	loading: loadingSave,
+	// 	success: successSave,
+	// 	error: errorSave,
+	// } = workoutSave;
+
 	const [id, setId] = useState('');
 	const [exercise, setExercise] = useState('');
 	const [reps, setReps] = useState('');
@@ -16,13 +22,6 @@ function AddWorkOut(props) {
 	const [weight, setWeight] = useState('');
 	const [date, setDate] = useState('');
 	const [time, setTime] = useState('');
-
-	// const saveWorkOut = useSelector((state) => state.saveWorkOut);
-	// const {
-	// 	loading: loadingSave,
-	// 	success: successSave,
-	// 	error: errorSave,
-	// } = saveWorkOut;
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -44,13 +43,10 @@ function AddWorkOut(props) {
 	return (
 		<div className="profile-container">
 			<div className="profile-box">
-				<div className="profile-nav-box">
-					<Nav />
-				</div>
 				<div className="profile-add-workout-box">
 					<form onSubmit={submitHandler}>
 						<ul>
-							<h5> Add a workout</h5>
+							<h3> Add a Workout </h3>
 							<li>
 								<input
 									type="text"

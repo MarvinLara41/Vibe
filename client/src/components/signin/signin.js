@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../../../actions/userActions';
+import { signin } from '../../actions/userActions';
 
 function SignIn(props) {
 	const [email, setEmail] = useState('');

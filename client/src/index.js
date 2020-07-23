@@ -10,8 +10,8 @@ import {
 	withRouter,
 } from 'react-router-dom';
 import Welcome from './components/welcome/Welcome';
-import Register from './components/welcome/register/register';
-import Signin from './components/welcome/signin/signin';
+import Register from './components/register/register';
+import Signin from './components/signin/signin';
 import Profile from './components/profile/profile';
 import AddWorkOut from './components/addWorkOut/addWorkOut';
 import 'bootstrap/dist/css/bootstrap.min.css';

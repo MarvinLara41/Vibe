@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Nav from '../navigation/nav';
+import { Link } from 'react-router-dom';
 import {
 	workoutDelete,
 	listMyPersonalWorkOuts,
 } from '../../actions/workoutActions';
-import { update } from '../../actions/userActions';
+import { update, logout } from '../../actions/userActions';
 
 function Profile(props) {
 	const dispatch = useDispatch();
@@ -31,6 +31,12 @@ function Profile(props) {
 		dispatch(workoutDelete(workout._id));
 	};
 
+	const handleLogout = (e) => {
+		e.preventDefault();
+		dispatch(logout());
+		props.history.push('/signin');
+	};
+
 	const updateHandler = (e) => {
 		e.preventDefault();
 		dispatch(update({ userId: userInfo._id, email, userName, password }));
@@ -49,7 +55,7 @@ function Profile(props) {
 	return (
 		<div>
 			<div>
-				<h4> Profile</h4>
+				<h4> Welcome, {userInfo.userName}</h4>
 
 				<div className="profile-update-form">
 					<form onSubmit={updateHandler}>
@@ -66,7 +72,7 @@ function Profile(props) {
 									name="username"
 									id="userName"
 									value={userName}
-									placeholder="Enter UserName"
+									placeholder="Update UserName"
 									onChange={(e) => setUserName(e.target.value)}
 								/>
 							</li>
@@ -77,7 +83,7 @@ function Profile(props) {
 									name="email"
 									id="email"
 									value={email}
-									placeholder="Enter Email"
+									placeholder="Update Email"
 									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</li>
@@ -87,7 +93,7 @@ function Profile(props) {
 									type="password"
 									name="password"
 									id="password"
-									placeholder="Enter Password"
+									placeholder="Update Password"
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 								/>
@@ -100,7 +106,23 @@ function Profile(props) {
 
 			<div className="profile-workout-list">
 				<div className="profile-nav-box">
-					<Nav />
+					<div className="nav-container">
+						<div className="nav-box">
+							<ul>
+								<li>
+									<Link to="/profile"> Profile </Link>
+								</li>
+								<li>
+									<Link to="/addworkout"> Add WorkOut </Link>
+								</li>
+								<li>
+									<button type="button" onClick={handleLogout}>
+										Logout
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 
 				{loadingWorkouts ? (
@@ -122,6 +144,7 @@ function Profile(props) {
 						<tbody>
 							{workouts.map((workout) => (
 								<tr key={workout._id}>
+									<td> {workout._id} </td>
 									<td>{workout.exercise}</td>
 									<td>{workout.reps}</td>
 									<td>{workout.sets}</td>
