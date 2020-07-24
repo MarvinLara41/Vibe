@@ -14,6 +14,7 @@ import Register from './components/register/register';
 import Signin from './components/signin/signin';
 import Profile from './components/profile/profile';
 import AddWorkOut from './components/addWorkOut/addWorkOut';
+import UserInfo from './components/userInfo/userInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 					<Route path="/register" component={Register} />
 					<Route path="/signin" component={Signin} />
 					<Route path="/profile" component={Profile} />
+					<Route path="/update" component={UserInfo} />
 					<Route path="/addworkout" component={AddWorkOut} />
 					<Route path="*" component={() => '404 NOT FOUND'} />
 				</Switch>

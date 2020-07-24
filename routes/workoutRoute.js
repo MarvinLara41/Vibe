@@ -21,13 +21,22 @@ router.post('/', isAuth, async (req, res) => {
 			data: newWorkOut,
 		});
 	}
-
 	return res.status(500).send({ message: 'Error in saving workout.' });
 });
 
 router.get('/mine', isAuth, async (req, res) => {
 	const workouts = await workoutModel.find({ user: req.user._id });
 	res.send(workouts);
+});
+
+router.delete('/:id', isAuth, async (req, res) => {
+	const deletedWorkOut = await workoutModel.findById(req.params.id);
+	if (deletedWorkOut) {
+		await deletedWorkOut.remove();
+		res.send({ message: 'WorkOut Deleted' });
+	} else {
+		res.send('Error in Deletion.');
+	}
 });
 
 module.exports = router;

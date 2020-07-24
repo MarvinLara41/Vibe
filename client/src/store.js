@@ -10,6 +10,7 @@ import {
 import {
 	workoutSaveReducer,
 	workoutPersonalListReducer,
+	workoutDeleteReducer,
 } from './reducers/workoutReducer';
 
 const userInfo = Cookie.getJSON('userInfo') || null;
@@ -24,6 +25,7 @@ const reducer = combineReducers({
 	workoutSave: workoutSaveReducer,
 	workoutPersonalList: workoutPersonalListReducer,
 	userUpdate: userUpdateReducer,
+	workoutDelet: workoutDeleteReducer,
 });
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

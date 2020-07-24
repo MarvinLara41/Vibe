@@ -11,7 +11,7 @@ import {
 	WORKOUT_PERSONAL_LIST_SUCCESS,
 } from '../constants/workoutConstants';
 
-const workoutSave = (workout) => async (dispatch, getState) => {
+const saveWorkOut = (workout) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: WORKOUT_SAVE_REQUEST, payload: workout });
 		const {
@@ -37,7 +37,7 @@ const workoutSave = (workout) => async (dispatch, getState) => {
 	}
 };
 
-const workoutDelete = (workoutId) => async (dispatch, getState) => {
+const deleteWorkOut = (workoutId) => async (dispatch, getState) => {
 	try {
 		const {
 			userSignin: { userInfo },
@@ -69,4 +69,4 @@ const listMyPersonalWorkOuts = () => async (dispatch, getState) => {
 	}
 };
 
-export { workoutSave, workoutDelete, listMyPersonalWorkOuts };
+export { saveWorkOut, deleteWorkOut, listMyPersonalWorkOuts };
