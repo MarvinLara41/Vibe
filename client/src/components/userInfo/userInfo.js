@@ -18,7 +18,9 @@ function UserInfo(props) {
 
 	const updateHandler = (e) => {
 		e.preventDefault();
-		dispatch(update({ userId: userInfo._id, email, userName, password }));
+		dispatch(update({ userId: userInfo._id, email, userName, password })).then(
+			alert('User Info Updated.')
+		);
 	};
 
 	const handleLogout = (e) => {
@@ -33,7 +35,6 @@ function UserInfo(props) {
 			setEmail(userInfo.email);
 			setPassword(userInfo.password);
 		}
-
 		return () => {};
 	}, [userInfo]);
 
@@ -47,7 +48,7 @@ function UserInfo(props) {
 								<Link to="/profile"> Profile </Link>
 							</li>
 							<li>
-								<Link to="update"> User Info </Link>
+								<Link to="/update"> User Info </Link>
 							</li>
 							<li>
 								<Link to="/addworkout"> Add WorkOut </Link>

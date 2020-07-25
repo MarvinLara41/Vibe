@@ -45,7 +45,9 @@ router.post('/register', async (req, res) => {
 
 router.put('/:id', isAuth, async (req, res) => {
 	const userId = req.params.id;
+
 	const user = await userModel.findById(userId);
+
 	if (user) {
 		user.userName = req.body.userName || user.userName;
 		user.email = req.body.email || user.email;

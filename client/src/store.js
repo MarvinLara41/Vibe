@@ -25,7 +25,7 @@ const reducer = combineReducers({
 	workoutSave: workoutSaveReducer,
 	workoutPersonalList: workoutPersonalListReducer,
 	userUpdate: userUpdateReducer,
-	workoutDelet: workoutDeleteReducer,
+	workoutDelete: workoutDeleteReducer,
 });
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

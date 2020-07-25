@@ -61,41 +61,43 @@ function Profile(props) {
 				</div>
 
 				<div className="profile-workout-list">
-					<h4> Welcome, {userInfo.userName}</h4>
 					{loadingWorkouts ? (
 						<div>Loading...</div>
 					) : errorWorkouts ? (
 						<div>{errorWorkouts} </div>
 					) : (
-						<table className="table">
-							<thead>
-								<tr>
-									<th>Exercise </th>
-									<th> Reps </th>
-									<th>Sets</th>
-									<th> Weight</th>
-									<th>Date</th>
-									<th>Time </th>
-								</tr>
-							</thead>
-							<tbody>
-								{workouts.map((workout) => (
-									<tr key={workout._id}>
-										<td>{workout.exercise}</td>
-										<td>{workout.reps}</td>
-										<td>{workout.sets}</td>
-										<td>{workout.weight}</td>
-										<td>{workout.date}</td>
-										<td>{workout.time}</td>
-										<td>
-											<button onClick={() => deleteHandler(workout)}>
-												Delete
-											</button>
-										</td>
+						<div>
+							<h4> Welcome, {userInfo.userName} </h4>
+							<table className="table">
+								<thead>
+									<tr>
+										<th>Exercise </th>
+										<th> Reps </th>
+										<th>Sets</th>
+										<th> Weight</th>
+										<th>Date</th>
+										<th>Time </th>
 									</tr>
-								))}
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									{workouts.map((workout) => (
+										<tr key={workout._id}>
+											<td>{workout.exercise}</td>
+											<td>{workout.reps}</td>
+											<td>{workout.sets}</td>
+											<td>{workout.weight}</td>
+											<td>{workout.date}</td>
+											<td>{workout.time}</td>
+											<td>
+												<button onClick={() => deleteHandler(workout)}>
+													Delete
+												</button>
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
 					)}
 				</div>
 			</div>

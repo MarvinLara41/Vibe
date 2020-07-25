@@ -72,7 +72,7 @@ const update = ({ userId, userName, email, password }) => async (
 			},
 			{
 				headers: {
-					Authorization: 'Bearer' + userInfo.token,
+					Authorization: 'Bearer ' + userInfo.token,
 				},
 			}
 		);
