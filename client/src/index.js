@@ -15,7 +15,6 @@ import Signin from './components/signin/signin';
 import Profile from './components/profile/profile';
 import AddWorkOut from './components/addWorkOut/addWorkOut';
 import UserInfo from './components/userInfo/userInfo';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	return (
