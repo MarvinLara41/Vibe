@@ -180,6 +180,26 @@ ul > li > input {
 	width: 50rem;
 }
 
+.profile-table {
+	width: 30rem;
+}
+
+.profile-table > thead > tr > th {
+	border-bottom: solid;
+	border-bottom-width: 0.1rem;
+	border-bottom-color: lightslategray;
+}
+
+.profile-table > tbody > tr > td {
+	border-bottom: solid;
+	border-bottom-width: 0.1rem;
+	border-bottom-color: lightslategray;
+}
+
+.profile-table > tbody > tr > td > :nth-last-child(7) {
+	border-style: none;
+}
+
 /** add workout **/
 .add-workout-container {
 	width: 100%;

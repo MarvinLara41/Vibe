@@ -44,7 +44,7 @@ function AddWorkOut(props) {
 				date,
 				time,
 			})
-		).then(window.location.reload());
+		).then(window.location.reload(false));
 	};
 
 	return (

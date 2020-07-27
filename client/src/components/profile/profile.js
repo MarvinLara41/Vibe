@@ -21,7 +21,7 @@ function Profile(props) {
 	} = workoutPersonalList;
 
 	const deleteHandler = (workout) => {
-		dispatch(deleteWorkOut(workout._id)).then(window.location.reload());
+		dispatch(deleteWorkOut(workout._id)).then(window.location.reload(false));
 	};
 
 	const handleLogout = (e) => {
@@ -68,7 +68,7 @@ function Profile(props) {
 					) : (
 						<div>
 							<h4> Welcome, {userInfo.userName} </h4>
-							<table className="table">
+							<table className="profile-table">
 								<thead>
 									<tr>
 										<th>Exercise </th>
