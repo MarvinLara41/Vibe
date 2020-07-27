@@ -21,7 +21,7 @@ function Profile(props) {
 	} = workoutPersonalList;
 
 	const deleteHandler = (workout) => {
-		dispatch(deleteWorkOut(workout._id)).then(window.location.reload(false));
+		dispatch(deleteWorkOut(workout._id));
 	};
 
 	const handleLogout = (e) => {
