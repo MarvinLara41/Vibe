@@ -21,8 +21,6 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/public'));
 }
 
-// Add routes, both API and view
-
 // Connect to the Mongo DB
 const MONGODB_URI = config.MONGODB_URI;
 

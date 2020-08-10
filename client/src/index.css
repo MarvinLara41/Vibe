@@ -50,6 +50,18 @@ p {
 	font-size: 28px;
 }
 
+@media (max-width: 376px) {
+	.welcome-logon {
+		display: flex;
+		justify-content: center;
+	}
+
+	.welcome-logon > button {
+		display: inline;
+		margin: auto;
+	}
+}
+
 /** Register **/
 
 .register-container {
@@ -200,6 +212,33 @@ ul > li > input {
 	border-style: none;
 }
 
+@media (max-width: 376px) {
+	.profile-box {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.nav-container {
+		font-size: 12px;
+	}
+
+	.profile-workout-list {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		font-size: 14px;
+		margin-top: 2rem;
+	}
+
+	.profile-table {
+		display: inline-block;
+		justify-content: center;
+		width: 100%;
+		margin-right: 3rem;
+	}
+}
+
 /** add workout **/
 .add-workout-container {
 	width: 100%;
@@ -224,6 +263,18 @@ ul > li > input {
 	margin-left: 4rem;
 }
 
+@media (max-width: 376px) {
+	.add-workout-box {
+		display: flex;
+		justify-content: center;
+		width: 55vw;
+	}
+
+	.profile-add-workout-box {
+		margin: auto;
+	}
+}
+
 /** User Info **/
 .userInfo-container {
 	width: 100%;
@@ -241,4 +292,11 @@ ul > li > input {
 	border-style: solid;
 	color: turquoise;
 	border-radius: 5rem;
+}
+
+@media (max-width: 376px) {
+	.userInfo-box {
+		display: flex;
+		justify-content: center;
+	}
 }

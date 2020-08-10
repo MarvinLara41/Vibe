@@ -67,7 +67,7 @@ function Profile(props) {
 						<div>{errorWorkouts} </div>
 					) : (
 						<div>
-							<h4> Welcome, {userInfo.userName} </h4>
+							{/* <h4> Welcome, {userInfo.userName} </h4> */}
 							<table className="profile-table">
 								<thead>
 									<tr>
